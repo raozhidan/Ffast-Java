@@ -4,7 +4,7 @@ import cn.ffast.core.support.ICrudService;
 import cn.ffast.web.entity.sys.Res;
 import cn.ffast.web.entity.sys.RoleRes;
 import cn.ffast.web.vo.RoleMenuPerms;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 
 import java.util.HashSet;
 import java.util.List;
@@ -59,7 +59,7 @@ public interface IRoleResService extends ICrudService<RoleRes,Long> {
      * @param roleId
      * @return
      */
-    ServiceResult saveRes(String ids,Long roleId);
+    ResponseInfo saveRes(String ids, Long roleId);
 
     /**
      * 获得角色资源列表

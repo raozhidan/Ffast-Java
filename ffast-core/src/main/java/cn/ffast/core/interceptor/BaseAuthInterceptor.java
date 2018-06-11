@@ -6,7 +6,7 @@ import cn.ffast.core.annotations.Permission;
 import cn.ffast.core.auth.OperatorUtils;
 import cn.ffast.core.utils.ResultCode;
 import cn.ffast.core.auth.OperatorBase;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import com.baomidou.mybatisplus.toolkit.ReflectionKit;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -18,7 +18,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.ParameterizedType;
 import java.util.Set;
 
 /**
@@ -155,7 +154,7 @@ public abstract class BaseAuthInterceptor<T extends OperatorBase> extends Handle
      */
     protected void notLogin(HttpServletResponse response) throws Exception {
         initResponse(response);
-        ServiceResult result = new ServiceResult(ResultCode.NOTLOGIN.getCode(),
+        ResponseInfo result = new ResponseInfo(ResultCode.NOTLOGIN.getCode(),
                 ResultCode.NOTLOGIN.getMessage());
         response.getWriter().print(result.toJSON());
     }
@@ -168,7 +167,7 @@ public abstract class BaseAuthInterceptor<T extends OperatorBase> extends Handle
      */
     protected void notPermission(HttpServletResponse response) throws Exception {
         initResponse(response);
-        ServiceResult result = new ServiceResult(ResultCode.PERMISSION_DENIED.getCode(),
+        ResponseInfo result = new ResponseInfo(ResultCode.PERMISSION_DENIED.getCode(),
                 ResultCode.PERMISSION_DENIED.getMessage());
         response.getWriter().print(result.toJSON());
     }

@@ -1,9 +1,8 @@
 package cn.ffast.web.controller.sys;
 
-import cn.ffast.core.annotations.CrudConfig;
 import cn.ffast.core.annotations.Logined;
 import cn.ffast.core.annotations.Permission;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.web.entity.sys.Dict;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,7 +52,7 @@ public class DictController extends BaseCrudController<Dict,IDictService,Long> {
      */
     @ResponseBody
     @RequestMapping(value = "/get")
-    public ServiceResult getDict(String type,Boolean isName){
+    public ResponseInfo getDict(String type, Boolean isName){
         return getService().getDict(type,isName);
     }
 }

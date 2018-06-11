@@ -4,7 +4,7 @@ package cn.ffast.core.support;
 import cn.ffast.core.annotations.Log;
 import cn.ffast.core.redis.RedisCacheUtils;
 import cn.ffast.core.utils.FStringUtil;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -12,8 +12,6 @@ import com.baomidou.mybatisplus.plugins.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,17 +36,17 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
 
     @Log("插入记录")
     @Override
-    public ServiceResult create(T m) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo create(T m) {
+        ResponseInfo result = new ResponseInfo(false);
 
-        ServiceResult beforeResult = createBefore(m);
+        ResponseInfo beforeResult = createBefore(m);
         if (beforeResult != null) {
             return beforeResult;
         }
 
         try {
             if (insert(m)) {
-                ServiceResult afterResult = createAfter(m);
+                ResponseInfo afterResult = createAfter(m);
                 if (afterResult != null) {
                     return afterResult;
                 }
@@ -70,15 +68,15 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
 
     @Override
     @Log("更新记录")
-    public ServiceResult update(T m, boolean updateAllColumn) {
+    public ResponseInfo update(T m, boolean updateAllColumn) {
         logger.debug("更新记录");
-        ServiceResult result = new ServiceResult(false);
+        ResponseInfo result = new ResponseInfo(false);
         if (m == null || m.getId() == null) {
             result.setMessage("请指定要修改记录");
             return result;
         }
         T oldM = selectById(m.getId());
-        ServiceResult beforeResult = updateBefore(m, oldM);
+        ResponseInfo beforeResult = updateBefore(m, oldM);
         if (beforeResult != null) {
             return beforeResult;
         }
@@ -94,7 +92,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
             }
         }
         if (status) {
-            ServiceResult afterResult = updateAfter(m, oldM);
+            ResponseInfo afterResult = updateAfter(m, oldM);
             if (afterResult != null) {
                 return afterResult;
             }
@@ -108,13 +106,13 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
 
     @Log("删除记录")
     @Override
-    public ServiceResult mulDelete(String ids) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo mulDelete(String ids) {
+        ResponseInfo result = new ResponseInfo(false);
         String[] idArray = FStringUtil.split(ids);
         if (idArray == null || idArray.length == 0) {
             result.setMessage("请选择要删除的数据行");
         } else {
-            ServiceResult beforeResult = deleteBefore(ids);
+            ResponseInfo beforeResult = deleteBefore(ids);
             if (beforeResult != null) {
                 return beforeResult;
             }
@@ -123,7 +121,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
                 EntityWrapper ew = new EntityWrapper<T>();
                 ew.in("id", ids);
                 if (delete(ew)) {
-                    ServiceResult afterResult = deleteAfter(ids);
+                    ResponseInfo afterResult = deleteAfter(ids);
                     if (afterResult != null) {
                         return afterResult;
                     }
@@ -142,8 +140,8 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
 
     @Log("根据id删除记录")
     @Override
-    public ServiceResult delById(ID id) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo delById(ID id) {
+        ResponseInfo result = new ResponseInfo(false);
         if (id == null) {
             result.setMessage("请选择要删除的数据行");
             return result;
@@ -165,7 +163,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
 
     @Log("删除记录")
     @Override
-    public ServiceResult delete(String ids) {
+    public ResponseInfo delete(String ids) {
         return mulDelete(ids);
     }
 
@@ -233,7 +231,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
      * @param m
      * @return
      */
-    protected ServiceResult createBefore(T m) {
+    protected ResponseInfo createBefore(T m) {
         return null;
     }
 
@@ -243,7 +241,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
      * @param ids
      * @return
      */
-    protected ServiceResult deleteBefore(String ids) {
+    protected ResponseInfo deleteBefore(String ids) {
         return null;
     }
 
@@ -254,7 +252,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
      * @param oldM
      * @return
      */
-    protected ServiceResult updateBefore(T m, T oldM) {
+    protected ResponseInfo updateBefore(T m, T oldM) {
         return null;
     }
 
@@ -275,7 +273,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
      * @param m
      * @return
      */
-    protected ServiceResult createAfter(T m) {
+    protected ResponseInfo createAfter(T m) {
         return null;
     }
 
@@ -285,7 +283,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
      * @param ids
      * @return
      */
-    protected ServiceResult deleteAfter(String ids) {
+    protected ResponseInfo deleteAfter(String ids) {
         return null;
     }
 
@@ -296,7 +294,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
      * @param oldM
      * @return
      */
-    protected ServiceResult updateAfter(T m, T oldM) {
+    protected ResponseInfo updateAfter(T m, T oldM) {
         return null;
     }
 

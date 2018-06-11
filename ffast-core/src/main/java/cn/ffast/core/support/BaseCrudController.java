@@ -2,23 +2,16 @@ package cn.ffast.core.support;
 
 import cn.ffast.core.annotations.CrudConfig;
 import cn.ffast.core.annotations.Permission;
-import cn.ffast.core.auth.OperatorBase;
 import cn.ffast.core.utils.AnnotationUtils;
-import cn.ffast.core.vo.ServiceResult;
-import org.apache.commons.lang3.ArrayUtils;
+import cn.ffast.core.vo.ResponseInfo;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.baomidou.mybatisplus.plugins.Page;
-import org.springframework.web.method.HandlerMethod;
 
 import javax.annotation.PostConstruct;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.Map;
 
 /**
  * @description: 基础增删改查控制器
@@ -82,8 +75,8 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
     @ResponseBody
     @RequestMapping(value = "/list")
     @Permission(value = "list")
-    public ServiceResult list(T m, Integer pageSize, Integer page, Boolean simple, String sortField, String sortOrder) {
-        ServiceResult beforeResult = listBefore(m);
+    public ResponseInfo list(T m, Integer pageSize, Integer page, Boolean simple, String sortField, String sortOrder) {
+        ResponseInfo beforeResult = listBefore(m);
         if (beforeResult != null) {
             return beforeResult;
         }
@@ -118,13 +111,13 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @Permission(value = "create")
-    public ServiceResult create(T m) {
+    public ResponseInfo create(T m) {
         m.setCreatorId(getLoginUserId());
-        ServiceResult beforeResult = createBefore(m);
+        ResponseInfo beforeResult = createBefore(m);
         if (beforeResult != null) {
             return beforeResult;
         }
-        ServiceResult result = getService().create(m);
+        ResponseInfo result = getService().create(m);
         createAfter(m, result);
         return result;
     }
@@ -138,13 +131,13 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
     @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @Permission(value = "update")
-    public ServiceResult update(T m) {
+    public ResponseInfo update(T m) {
         m.setLastModifierId(getLoginUserId());
-        ServiceResult beforeResult = updateBefore(m);
+        ResponseInfo beforeResult = updateBefore(m);
         if (beforeResult != null) {
             return beforeResult;
         }
-        ServiceResult result = getService().update(m, isUpdateAllColumn());
+        ResponseInfo result = getService().update(m, isUpdateAllColumn());
         updateAfter(m, result);
         return result;
     }
@@ -158,12 +151,12 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @Permission(value = "delete")
-    public ServiceResult delete(String ids) {
-        ServiceResult beforeResult = deleteBefore(ids);
+    public ResponseInfo delete(String ids) {
+        ResponseInfo beforeResult = deleteBefore(ids);
         if (beforeResult != null) {
             return beforeResult;
         }
-        ServiceResult result = getService().delete(ids);
+        ResponseInfo result = getService().delete(ids);
         deleteAfter(ids, result);
         return result;
     }
@@ -207,7 +200,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param m
      * @return
      */
-    protected ServiceResult createBefore(T m) {
+    protected ResponseInfo createBefore(T m) {
         return null;
     }
 
@@ -217,7 +210,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param ids
      * @return
      */
-    protected ServiceResult deleteBefore(String ids) {
+    protected ResponseInfo deleteBefore(String ids) {
         return null;
     }
 
@@ -227,7 +220,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param m
      * @return
      */
-    protected ServiceResult updateBefore(T m) {
+    protected ResponseInfo updateBefore(T m) {
         return null;
     }
 
@@ -237,7 +230,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param m
      * @return
      */
-    protected ServiceResult listBefore(T m) {
+    protected ResponseInfo listBefore(T m) {
         return null;
     }
 
@@ -247,7 +240,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param m
      * @param result
      */
-    protected void createAfter(T m, ServiceResult result) {
+    protected void createAfter(T m, ResponseInfo result) {
     }
 
     /**
@@ -256,7 +249,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param ids
      * @param result
      */
-    protected void deleteAfter(String ids, ServiceResult result) {
+    protected void deleteAfter(String ids, ResponseInfo result) {
     }
 
     /**
@@ -265,7 +258,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param m
      * @param result
      */
-    protected void updateAfter(T m, ServiceResult result) {
+    protected void updateAfter(T m, ResponseInfo result) {
     }
 
     /**
@@ -274,7 +267,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param m
      * @param result
      */
-    protected void listAfter(T m, ServiceResult result) {
+    protected void listAfter(T m, ResponseInfo result) {
     }
 
 

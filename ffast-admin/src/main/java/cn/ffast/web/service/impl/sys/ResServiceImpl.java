@@ -6,7 +6,7 @@ import cn.ffast.web.dao.sys.RoleResMapper;
 import cn.ffast.web.entity.sys.Res;
 import cn.ffast.web.entity.sys.RoleRes;
 import cn.ffast.web.service.sys.IResService;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.slf4j.Logger;
@@ -65,7 +65,7 @@ public class ResServiceImpl extends CrudServiceImpl<ResMapper, Res, Long> implem
     }
 
     @Override
-    protected ServiceResult deleteBefore(String ids) {
+    protected ResponseInfo deleteBefore(String ids) {
         EntityWrapper ew = new EntityWrapper<RoleRes>();
         ew.in("res_id", ids);
         roleResMapper.delete(ew);
@@ -99,27 +99,27 @@ public class ResServiceImpl extends CrudServiceImpl<ResMapper, Res, Long> implem
     }
 
     @Override
-    protected ServiceResult deleteAfter(String ids) {
+    protected ResponseInfo deleteAfter(String ids) {
         clearCache();
         return null;
     }
 
 
     @Override
-    protected ServiceResult createAfter(Res m) {
+    protected ResponseInfo createAfter(Res m) {
         clearCache();
         return null;
     }
 
     @Override
-    protected ServiceResult updateAfter(Res m, Res oldM) {
+    protected ResponseInfo updateAfter(Res m, Res oldM) {
         clearCache();
         return null;
     }
 
 
     @Override
-    protected ServiceResult updateBefore(Res m, Res oldM) {
+    protected ResponseInfo updateBefore(Res m, Res oldM) {
         try {
             BeanUtils.copyProperties(m, oldM);
         } catch (Exception e) {

@@ -5,7 +5,7 @@ import cn.ffast.core.support.CrudServiceImpl;
 import cn.ffast.web.dao.sys.RoleMapper;
 import cn.ffast.web.entity.sys.Role;
 import cn.ffast.web.service.sys.IRoleService;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.springframework.stereotype.Service;
@@ -40,8 +40,8 @@ public class RoleServiceImpl extends CrudServiceImpl<RoleMapper, Role, Long> imp
     }
 
     @Override
-    protected ServiceResult createBefore(Role m) {
-        ServiceResult result = new ServiceResult();
+    protected ResponseInfo createBefore(Role m) {
+        ResponseInfo result = new ResponseInfo();
         EntityWrapper ew = new EntityWrapper<Role>();
         ew.eq("name", m.getName());
         if (selectCount(ew) > 0) {
@@ -53,13 +53,13 @@ public class RoleServiceImpl extends CrudServiceImpl<RoleMapper, Role, Long> imp
     }
 
     @Override
-    protected ServiceResult deleteBefore(String ids) {
+    protected ResponseInfo deleteBefore(String ids) {
         EntityWrapper ew = new EntityWrapper<Role>();
         ew.in("id", ids);
         List<Role> roles = baseMapper.selectList(ew);
         for (Role role : roles) {
             if (new Integer(1).equals(role.getIsSys())) {
-                return new ServiceResult(false).setMessage("无法删除系统角色:" + role.getName());
+                return new ResponseInfo(false).setMessage("无法删除系统角色:" + role.getName());
             }
         }
         return null;
@@ -67,9 +67,9 @@ public class RoleServiceImpl extends CrudServiceImpl<RoleMapper, Role, Long> imp
 
 
     @Override
-    protected ServiceResult updateBefore(Role m, Role oldM) {
+    protected ResponseInfo updateBefore(Role m, Role oldM) {
         if (Integer.valueOf(1).equals(oldM.getIsSys())) {
-            return new ServiceResult(false).setMessage("不能修改系统角色");
+            return new ResponseInfo(false).setMessage("不能修改系统角色");
         }
         return null;
     }

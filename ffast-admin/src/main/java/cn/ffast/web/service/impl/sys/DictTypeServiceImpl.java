@@ -4,7 +4,7 @@ import cn.ffast.core.support.CrudServiceImpl;
 import cn.ffast.web.dao.sys.DictTypeMapper;
 import cn.ffast.web.entity.sys.DictType;
 import cn.ffast.web.service.sys.IDictTypeService;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +19,8 @@ import org.springframework.stereotype.Service;
 public class DictTypeServiceImpl extends CrudServiceImpl<DictTypeMapper, DictType, Long> implements IDictTypeService {
 
     @Override
-    protected ServiceResult createBefore(DictType m) {
-        ServiceResult result = new ServiceResult();
+    protected ResponseInfo createBefore(DictType m) {
+        ResponseInfo result = new ResponseInfo();
         EntityWrapper ew = new EntityWrapper<DictType>();
         ew.eq("identity", m.getIdentity());
         if (selectCount(ew) > 0) {

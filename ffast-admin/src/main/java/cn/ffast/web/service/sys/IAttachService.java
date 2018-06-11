@@ -2,7 +2,7 @@ package cn.ffast.web.service.sys;
 
 import cn.ffast.core.support.ICrudService;
 import cn.ffast.web.entity.sys.Attach;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -29,7 +29,7 @@ public interface IAttachService extends ICrudService<Attach,Long> {
      * @param file
      * @return
      */
-    ServiceResult uploadImg(String resource,MultipartFile file);
+    ResponseInfo uploadImg(String resource, MultipartFile file);
 
     /**
      * 上传文件
@@ -37,7 +37,7 @@ public interface IAttachService extends ICrudService<Attach,Long> {
      * @param file
      * @return
      */
-    ServiceResult upload(String resource, MultipartFile file);
+    ResponseInfo upload(String resource, MultipartFile file);
 
     /**
      * 删除垃圾文件

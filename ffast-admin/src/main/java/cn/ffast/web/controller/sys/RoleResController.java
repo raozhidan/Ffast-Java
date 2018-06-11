@@ -1,11 +1,10 @@
 package cn.ffast.web.controller.sys;
 
-import cn.ffast.core.annotations.CrudConfig;
 import cn.ffast.core.annotations.Logined;
 import cn.ffast.core.annotations.Permission;
 import cn.ffast.core.auth.OperatorUtils;
 import cn.ffast.web.service.sys.IResService;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.web.entity.sys.RoleRes;
 import cn.ffast.core.vo.ServiceRowsResult;
 import org.slf4j.Logger;
@@ -62,9 +61,9 @@ public class RoleResController extends BaseCrudController<RoleRes, IRoleResServi
      */
     @ResponseBody
     @RequestMapping(value = "/saveRes")
-    public ServiceResult saveRes(String ids, Long roleId) {
+    public ResponseInfo saveRes(String ids, Long roleId) {
         if (roleId.intValue() == 1) {
-            return new ServiceResult(false).setMessage("不能修改超级管理员账户");
+            return new ResponseInfo(false).setMessage("不能修改超级管理员账户");
         }
         return service.saveRes(ids, roleId);
     }
@@ -77,7 +76,7 @@ public class RoleResController extends BaseCrudController<RoleRes, IRoleResServi
      */
     @ResponseBody
     @RequestMapping(value = "/getRoleRes")
-    public ServiceResult getRoleResIds(Long roleId) {
+    public ResponseInfo getRoleResIds(Long roleId) {
         ServiceRowsResult result = new ServiceRowsResult(false);
         result.addData("rows", resService.selectList(null, new String[]{"id", "name", "parent_id", "res_type"}));
         result.addData("selected", service.getRoleResIds(roleId));

@@ -3,7 +3,6 @@ package cn.ffast.web.controller.sys;
 
 import cn.ffast.core.annotations.Logined;
 import cn.ffast.core.annotations.Permission;
-import cn.ffast.core.vo.ServiceResult;
 import cn.ffast.web.entity.sys.Role;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

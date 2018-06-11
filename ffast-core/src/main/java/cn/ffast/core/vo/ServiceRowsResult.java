@@ -7,7 +7,7 @@ import java.util.List;
  * @author dzy
  * @vesion 1.0
  */
-public class ServiceRowsResult<T> extends ServiceResult {
+public class ServiceRowsResult<T> extends ResponseInfo {
 	private static final long serialVersionUID = 1L;
 
 	public ServiceRowsResult(){}

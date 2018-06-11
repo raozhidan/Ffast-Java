@@ -2,7 +2,7 @@ package cn.ffast.web.service.sys;
 
 import cn.ffast.core.support.ICrudService;
 import cn.ffast.web.entity.sys.User;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 
 
 /**
@@ -24,12 +24,12 @@ public interface IUserService extends ICrudService<User,Long> {
     /**
      * 重置密码
      */
-    ServiceResult reseting(Long ids);
+    ResponseInfo reseting(Long ids);
 
     /**
      * 修改密码
      */
-    ServiceResult respwd(Long userId, String pwd, String newpwd, String newpwd2);
+    ResponseInfo respwd(Long userId, String pwd, String newpwd, String newpwd2);
 
     /**
      * 根据登录结果更新登录次数时间信息

@@ -4,7 +4,7 @@ import cn.ffast.core.support.CrudServiceImpl;
 import cn.ffast.web.dao.sys.DictMapper;
 import cn.ffast.web.entity.sys.Dict;
 import cn.ffast.web.service.sys.IDictService;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.springframework.cache.annotation.Cacheable;
@@ -35,7 +35,7 @@ public class DictServiceImpl extends CrudServiceImpl<DictMapper, Dict, Long> imp
 
     @Cacheable(value = "sys", key = "'dict_type_'+(#isName!=null && #isName?'name_':'')+#type")
     @Override
-    public ServiceResult getDict(String type, Boolean isName) {
+    public ResponseInfo getDict(String type, Boolean isName) {
         ServiceRowsResult result = new ServiceRowsResult(false);
         List<Dict> list = null;
         if (isName != null && isName) {
@@ -57,19 +57,19 @@ public class DictServiceImpl extends CrudServiceImpl<DictMapper, Dict, Long> imp
     }
 
     @Override
-    protected ServiceResult createAfter(Dict m) {
+    protected ResponseInfo createAfter(Dict m) {
         clearCache();
         return null;
     }
 
     @Override
-    protected ServiceResult deleteAfter(String ids) {
+    protected ResponseInfo deleteAfter(String ids) {
         clearCache();
         return null;
     }
 
     @Override
-    protected ServiceResult updateAfter(Dict m, Dict oldM) {
+    protected ResponseInfo updateAfter(Dict m, Dict oldM) {
         clearCache();
         return null;
     }

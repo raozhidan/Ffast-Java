@@ -3,7 +3,7 @@ package cn.ffast.web.controller.sys;
 import cn.ffast.core.annotations.CrudConfig;
 import cn.ffast.core.annotations.Logined;
 import cn.ffast.core.annotations.Permission;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.web.entity.sys.Res;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,22 +46,22 @@ public class ResController extends BaseCrudController<Res, IResService, Long> {
 
 
     @Override
-    protected ServiceResult createBefore(Res m) {
-        return new ServiceResult(false).setMessage("暂时关闭该功能！");
+    protected ResponseInfo createBefore(Res m) {
+        return new ResponseInfo(false).setMessage("暂时关闭该功能！");
     }
 
     @Override
-    protected ServiceResult deleteBefore(String ids) {
-        return new ServiceResult(false).setMessage("暂时关闭该功能！");
+    protected ResponseInfo deleteBefore(String ids) {
+        return new ResponseInfo(false).setMessage("暂时关闭该功能！");
     }
 
     @Override
-    protected ServiceResult updateBefore(Res m) {
-        return new ServiceResult(false).setMessage("暂时关闭该功能！");
+    protected ResponseInfo updateBefore(Res m) {
+        return new ResponseInfo(false).setMessage("暂时关闭该功能！");
     }
 
     @Override
-    protected void createAfter(Res m, ServiceResult result) {
+    protected void createAfter(Res m, ResponseInfo result) {
         if ("true".equals(getRequestParamString("addBaseCrud")) && m.getResType() == 1) {
             service.addBaseCrud(m);
         }

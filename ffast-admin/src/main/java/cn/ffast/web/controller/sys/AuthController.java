@@ -1,15 +1,12 @@
 package cn.ffast.web.controller.sys;
 
 import cn.ffast.core.annotations.Logined;
-import cn.ffast.core.annotations.Permission;
-import cn.ffast.core.auth.OperatorUtils;
 import cn.ffast.core.support.BaseController;
 import cn.ffast.core.support.IAuthService;
 import cn.ffast.core.service.CaptchaService;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,7 +38,7 @@ public class AuthController extends BaseController {
      */
     @RequestMapping(value = "/login")
     @ResponseBody
-    public ServiceResult login(String username, String password, String captcha) {
+    public ResponseInfo login(String username, String password, String captcha) {
         return authService.login(username, password, captcha, true);
     }
 
@@ -54,8 +51,8 @@ public class AuthController extends BaseController {
     @RequestMapping(value = "/isLogined")
     @ResponseBody
     @Logined
-    public ServiceResult isLogined() {
-        return new ServiceResult(true);
+    public ResponseInfo isLogined() {
+        return new ResponseInfo(true);
     }
 
 
@@ -66,7 +63,7 @@ public class AuthController extends BaseController {
      */
     @RequestMapping(value = "/logout")
     @ResponseBody
-    public ServiceResult logout() {
+    public ResponseInfo logout() {
         return authService.logout(getRequest().getHeader("token"));
     }
 
@@ -88,7 +85,7 @@ public class AuthController extends BaseController {
      */
     @RequestMapping(value = "/getMenuPerms")
     @ResponseBody
-    public ServiceResult roleMenuPerms(String roleName) {
+    public ResponseInfo roleMenuPerms(String roleName) {
         return authService.getMenuPermsByRoleName(roleName);
     }
 

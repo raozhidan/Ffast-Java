@@ -10,9 +10,8 @@ import cn.ffast.web.service.sys.IRoleResService;
 import cn.ffast.core.utils.FStringUtil;
 import cn.ffast.core.vo.Menu;
 import cn.ffast.web.vo.RoleMenuPerms;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.toolkit.CollectionUtils;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -83,8 +82,8 @@ public class RoleResServiceImpl extends CrudServiceImpl<RoleResMapper, RoleRes, 
     }
 
     @Override
-    public ServiceResult saveRes(String ids, Long roleId) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo saveRes(String ids, Long roleId) {
+        ResponseInfo result = new ResponseInfo(false);
         String[] idArray = FStringUtil.split(ids, ",");
         List<RoleRes> roleResList = new ArrayList<>();
         Long creatorId = getLoginUserId();
@@ -145,19 +144,19 @@ public class RoleResServiceImpl extends CrudServiceImpl<RoleResMapper, RoleRes, 
     }
 
     @Override
-    protected ServiceResult createAfter(RoleRes m) {
+    protected ResponseInfo createAfter(RoleRes m) {
         clearCache();
         return null;
     }
 
     @Override
-    protected ServiceResult deleteAfter(String ids) {
+    protected ResponseInfo deleteAfter(String ids) {
         clearCache();
         return null;
     }
 
     @Override
-    protected ServiceResult updateAfter(RoleRes m, RoleRes oldM) {
+    protected ResponseInfo updateAfter(RoleRes m, RoleRes oldM) {
         clearCache();
         return null;
     }

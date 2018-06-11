@@ -8,8 +8,7 @@ import cn.ffast.web.entity.sys.User;
 import cn.ffast.web.entity.sys.UserRole;
 import cn.ffast.web.service.sys.IUserRoleService;
 import cn.ffast.core.utils.FStringUtil;
-import cn.ffast.core.auth.OperatorBase;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -62,12 +61,12 @@ public class UserController extends BaseCrudController<User, IUserService, Long>
     }
 
     @Override
-    protected void createAfter(User m, ServiceResult result) {
+    protected void createAfter(User m, ResponseInfo result) {
         updateRole(m, result);
     }
 
     @Override
-    protected void updateAfter(User m, ServiceResult result) {
+    protected void updateAfter(User m, ResponseInfo result) {
         updateRole(m, result);
     }
 
@@ -78,7 +77,7 @@ public class UserController extends BaseCrudController<User, IUserService, Long>
      * @param m
      * @param result
      */
-    private void updateRole(User m, ServiceResult result) {
+    private void updateRole(User m, ResponseInfo result) {
         if (!StringUtils.isEmpty(m.getRoleId()) && m.getId() != null) {
             String[] idArray = FStringUtil.split(m.getRoleId(), ",");
             Long creatorId = getLoginUserId();
@@ -106,8 +105,8 @@ public class UserController extends BaseCrudController<User, IUserService, Long>
     @RequestMapping(value = "/reseting", method = RequestMethod.POST)
     @ResponseBody
     @Permission("reseting")
-    public ServiceResult resetting(Long id) {
-        ServiceResult result = getService().reseting(id);
+    public ResponseInfo resetting(Long id) {
+        ResponseInfo result = getService().reseting(id);
         return result;
     }
 
@@ -121,9 +120,9 @@ public class UserController extends BaseCrudController<User, IUserService, Long>
      */
     @RequestMapping(value = "/respwd", method = RequestMethod.POST)
     @ResponseBody
-    public ServiceResult respwd(String pwd, String newpwd, String newpwd2) {
+    public ResponseInfo respwd(String pwd, String newpwd, String newpwd2) {
         if (operatorUtils.getLoginUserId().intValue() == 1) {
-            return new ServiceResult(false).setMessage("不能修改超级管理员账户");
+            return new ResponseInfo(false).setMessage("不能修改超级管理员账户");
         }
         return service.respwd(operatorUtils.getLoginUserId(), pwd, newpwd, newpwd2);
     }

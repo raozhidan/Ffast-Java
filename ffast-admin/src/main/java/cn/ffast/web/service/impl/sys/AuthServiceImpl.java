@@ -5,7 +5,7 @@ import cn.ffast.core.service.CaptchaService;
 import cn.ffast.core.support.IAuthService;
 import cn.ffast.core.auth.OperatorUtils;
 import cn.ffast.core.utils.CollectionUtils;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.web.entity.sys.Role;
 import cn.ffast.web.entity.sys.User;
 import cn.ffast.web.service.sys.*;
@@ -43,8 +43,8 @@ public class AuthServiceImpl implements IAuthService {
 
 
     @Override
-    public ServiceResult login(String username, String password, String captcha, boolean getMenuPerms) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo login(String username, String password, String captcha, boolean getMenuPerms) {
+        ResponseInfo result = new ResponseInfo(false);
         logger.debug("login username:%s password:%s captcha%s", username, password, captcha);
         if (captchaEnable) {
             if (StringUtils.isEmpty(captcha)) {
@@ -78,7 +78,7 @@ public class AuthServiceImpl implements IAuthService {
         return result;
     }
 
-    private void joinData(User user, ServiceResult result, Boolean getMenuPerms) {
+    private void joinData(User user, ResponseInfo result, Boolean getMenuPerms) {
         userService.updateLoginResult(user.getUsername(), true);
         Operator curLoginUser = new Operator();
         curLoginUser.setUserName(user.getUsername());
@@ -117,8 +117,8 @@ public class AuthServiceImpl implements IAuthService {
     }
 
     @Override
-    public ServiceResult getMenuPermsByRoleName(String roleName) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo getMenuPermsByRoleName(String roleName) {
+        ResponseInfo result = new ResponseInfo(false);
         Operator operator = operatorUtils.getUser(Operator.class);
 
         if (operator == null) {
@@ -155,8 +155,8 @@ public class AuthServiceImpl implements IAuthService {
 
 
     @Override
-    public ServiceResult logout(String token) {
-        ServiceResult result = new ServiceResult(true);
+    public ResponseInfo logout(String token) {
+        ResponseInfo result = new ResponseInfo(true);
         operatorUtils.removeLoginUser(token);
         return result;
     }

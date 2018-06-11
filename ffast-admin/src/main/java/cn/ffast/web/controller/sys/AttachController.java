@@ -2,7 +2,7 @@ package cn.ffast.web.controller.sys;
 
 import cn.ffast.core.annotations.Logined;
 import cn.ffast.core.annotations.Permission;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -93,7 +93,7 @@ public class AttachController extends BaseCrudController<Attach, IAttachService,
     @RequestMapping(value = "/deleteRubbish", method = RequestMethod.POST)
     @ResponseBody
     public Object deleteRubish(){
-        ServiceResult result = new ServiceResult(false);
+        ResponseInfo result = new ResponseInfo(false);
         result = service.deleteRubbish();
         return result;
     }

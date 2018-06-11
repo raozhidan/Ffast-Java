@@ -1,7 +1,7 @@
 package cn.ffast.core.support;
 
 import cn.ffast.core.vo.ServiceRowsResult;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -22,7 +22,7 @@ public interface ICrudService<T extends BaseEntity,ID> extends IService<T> {
      * @param m 实体类
      * @return
      */
-    ServiceResult create(T m);
+    ResponseInfo create(T m);
     /**
      * @description: 更新对象
      * @createTime: 2017-9-5 10:00
@@ -31,7 +31,7 @@ public interface ICrudService<T extends BaseEntity,ID> extends IService<T> {
      * @param updateAllColumn 是否更新所有字段
      * @return
      */
-    ServiceResult update(T m, boolean updateAllColumn);
+    ResponseInfo update(T m, boolean updateAllColumn);
     /**
      * @description: 批量删除
      * @createTime: 2017-9-5 10:00
@@ -39,7 +39,7 @@ public interface ICrudService<T extends BaseEntity,ID> extends IService<T> {
      * @param ids
      * @return
      */
-    ServiceResult mulDelete(String ids);
+    ResponseInfo mulDelete(String ids);
     /**
      * @description: 根据Id删除对象
      * @createTime: 2017-9-5 10:00
@@ -47,7 +47,7 @@ public interface ICrudService<T extends BaseEntity,ID> extends IService<T> {
      * @param id
      * @return
      */
-    ServiceResult delById(ID id);
+    ResponseInfo delById(ID id);
     /**
      * @description: 删除支持批量
      * @createTime: 2017-9-5 10:00
@@ -55,7 +55,7 @@ public interface ICrudService<T extends BaseEntity,ID> extends IService<T> {
      * @param ids
      * @return
      */
-    ServiceResult delete(String ids);
+    ResponseInfo delete(String ids);
     /**
      * @description: 根据Id发现对象
      * @createTime: 2017-9-5 10:00

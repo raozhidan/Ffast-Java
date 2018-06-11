@@ -2,7 +2,7 @@ package cn.ffast.web.service.impl.work;
 
 
 import cn.ffast.core.support.CrudServiceImpl;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import cn.ffast.web.dao.work.BacklogMapper;
 import cn.ffast.web.entity.work.Backlog;
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
 public class BacklogServiceImpl extends CrudServiceImpl<BacklogMapper, Backlog, Long> implements IBacklogService {
 
     @Override
-    protected ServiceResult createBefore(Backlog m) {
+    protected ResponseInfo createBefore(Backlog m) {
         m.setUserIds(getLoginUserId().toString());
         return null;
     }

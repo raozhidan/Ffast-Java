@@ -2,7 +2,7 @@ package cn.ffast.web.service.sys;
 
 import cn.ffast.core.support.ICrudService;
 import cn.ffast.web.entity.sys.Dict;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 
 /**
  * @description: 字典服务类
@@ -18,5 +18,5 @@ public interface IDictService extends ICrudService<Dict,Long> {
 	 * @param isName 是否为字典分类名称
 	 * @return
 	 */
-	ServiceResult getDict(String type,Boolean isName);
+	ResponseInfo getDict(String type, Boolean isName);
 }

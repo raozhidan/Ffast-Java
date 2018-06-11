@@ -8,9 +8,9 @@ spring:
       enabled: true
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: rzd
+    password: Raozhidan123@
+    url: jdbc:mysql://192.168.11.101:3306/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
     druid:
       initialSize: 1
       maxActive: 10
@@ -21,15 +21,15 @@ spring:
   jackson:
     default-property-inclusion: non_null
   redis:
-
     enabled: true
-    host: 127.0.0.1
-    port: 6379
+    host: 192.168.11.101
+    port: 6380
     #password: 123465
     #过期时间（秒）
     expirationSecond: 0
     #序列号方式 默认0   0:"FastJSON",1:"JackJson",2:"Msgpack"
     serializerType: 2
+    password: 12345678
 
 mybatis-plus:
   global-config:

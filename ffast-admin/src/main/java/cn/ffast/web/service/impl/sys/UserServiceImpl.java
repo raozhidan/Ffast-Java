@@ -7,7 +7,7 @@ import cn.ffast.web.dao.sys.UserMapper;
 import cn.ffast.web.entity.sys.User;
 import cn.ffast.web.service.sys.IUserService;
 import cn.ffast.core.utils.PasswordUtil;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
@@ -59,8 +59,8 @@ public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> imp
 
     @Log("重置密码")
     @Override
-    public ServiceResult reseting(Long id) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo reseting(Long id) {
+        ResponseInfo result = new ResponseInfo(false);
         if (id == null) {
             result.setMessage("请选择要重置密码的用户");
         } else {
@@ -99,8 +99,8 @@ public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> imp
 
 
     @Override
-    protected ServiceResult createBefore(User m) {
-        ServiceResult result = new ServiceResult();
+    protected ResponseInfo createBefore(User m) {
+        ResponseInfo result = new ResponseInfo();
         EntityWrapper ew = new EntityWrapper<User>();
         ew.eq("username", m.getUsername());
         if (selectCount(ew) > 0) {
@@ -126,7 +126,7 @@ public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> imp
 
     @Log("修改密码")
     @Override
-    public ServiceResult respwd(Long userId, String pwd, String newpwd, String newpwd2) {
+    public ResponseInfo respwd(Long userId, String pwd, String newpwd, String newpwd2) {
         logger.debug(" 用户ID:" + userId + "  原密码" + pwd + "  新密码:" + newpwd);
         ServiceRowsResult result = new ServiceRowsResult(false);
         User user = userMapper.selectById(userId);

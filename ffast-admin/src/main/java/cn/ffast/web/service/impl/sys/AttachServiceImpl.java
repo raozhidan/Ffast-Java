@@ -5,7 +5,7 @@ import cn.ffast.web.dao.sys.AttachMapper;
 import cn.ffast.web.entity.sys.Attach;
 import cn.ffast.web.service.sys.IAttachService;
 import cn.ffast.core.utils.FileUtil;
-import cn.ffast.core.vo.ServiceResult;
+import cn.ffast.core.vo.ResponseInfo;
 import cn.ffast.core.vo.ServiceRowsResult;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.apache.commons.io.FilenameUtils;
@@ -71,8 +71,8 @@ public class AttachServiceImpl extends CrudServiceImpl<AttachMapper, Attach, Lon
     }
 
     @Override
-    public ServiceResult uploadImg(String resource, MultipartFile file) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo uploadImg(String resource, MultipartFile file) {
+        ResponseInfo result = new ResponseInfo(false);
         String fileName = file.getOriginalFilename();
         if (file == null) {
             result.setMessage("请选择上传的图片！");
@@ -91,8 +91,8 @@ public class AttachServiceImpl extends CrudServiceImpl<AttachMapper, Attach, Lon
     }
 
     @Override
-    public ServiceResult upload(String resource, MultipartFile file) {
-        ServiceResult result = new ServiceResult(false);
+    public ResponseInfo upload(String resource, MultipartFile file) {
+        ResponseInfo result = new ResponseInfo(false);
         String resourcePath = resource + "/";
         String extention = FilenameUtils.getExtension(file.getOriginalFilename()).toLowerCase();
         String fileName = System.currentTimeMillis() + "." + extention;
@@ -126,7 +126,7 @@ public class AttachServiceImpl extends CrudServiceImpl<AttachMapper, Attach, Lon
     }
 
     @Override
-    protected ServiceResult deleteAfter(String ids) {
+    protected ResponseInfo deleteAfter(String ids) {
         EntityWrapper<Attach> ew = new EntityWrapper<>();
         ew.in("id", ids);
         List<Attach> attachList = selectList(ew);

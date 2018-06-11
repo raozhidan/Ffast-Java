@@ -1,9 +1,7 @@
 package cn.ffast.core.support;
 
 
-import cn.ffast.core.vo.ServiceResult;
-
-import javax.servlet.http.HttpServletResponse;
+import cn.ffast.core.vo.ResponseInfo;
 
 public interface IAuthService {
     /**
@@ -14,7 +12,7 @@ public interface IAuthService {
      * @param getMenuPerms 同时获得菜单权限
      * @return
      */
-    ServiceResult login(String username, String password, String captcha, boolean getMenuPerms);
+    ResponseInfo login(String username, String password, String captcha, boolean getMenuPerms);
 
     /**
      * 退出登录
@@ -22,12 +20,12 @@ public interface IAuthService {
      * @param token
      * @return
      */
-    ServiceResult logout(String token);
+    ResponseInfo logout(String token);
 
     /**
      * 获取当前登录账户角色菜单权限
      * @param roleName
      * @return
      */
-    ServiceResult getMenuPermsByRoleName(String roleName);
+    ResponseInfo getMenuPermsByRoleName(String roleName);
 }
