@@ -31,8 +31,6 @@ public class ResServiceImpl extends CrudServiceImpl<ResMapper, Res, Long> implem
     @Resource
     RoleResMapper roleResMapper;
 
-
-
     private Res makeRes(String identity, String name, String append, String parentName, Long parentId, String parentUrl) {
         Res res = new Res();
         res.setIdentity(identity + ":" + append);
@@ -44,7 +42,6 @@ public class ResServiceImpl extends CrudServiceImpl<ResMapper, Res, Long> implem
         res.setCreatorId(getLoginUserId());
         return res;
     }
-
 
     @Override
     public boolean addBaseCrud(Res m) {
@@ -65,10 +62,10 @@ public class ResServiceImpl extends CrudServiceImpl<ResMapper, Res, Long> implem
     }
 
     @Override
-    protected ResponseInfo deleteBefore(String ids) {
-        EntityWrapper ew = new EntityWrapper<RoleRes>();
-        ew.in("res_id", ids);
-        roleResMapper.delete(ew);
+    protected ResponseInfo deleteBefore(String ids, EntityWrapper<Res> ew) {
+        EntityWrapper selectEw = new EntityWrapper<RoleRes>();
+        selectEw.in("res_id", ids);
+        roleResMapper.delete(selectEw);
         return null;
     }
 
@@ -97,26 +94,22 @@ public class ResServiceImpl extends CrudServiceImpl<ResMapper, Res, Long> implem
         m.setStatus(null);
         return null;
     }
-
     @Override
     protected ResponseInfo deleteAfter(String ids) {
         clearCache();
         return null;
     }
 
-
     @Override
     protected ResponseInfo createAfter(Res m) {
         clearCache();
         return null;
     }
-
     @Override
     protected ResponseInfo updateAfter(Res m, Res oldM) {
         clearCache();
         return null;
     }
-
 
     @Override
     protected ResponseInfo updateBefore(Res m, Res oldM) {
