@@ -38,12 +38,10 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
     @Override
     public ResponseInfo create(T m) {
         ResponseInfo result = new ResponseInfo(false);
-
         ResponseInfo beforeResult = createBefore(m);
         if (beforeResult != null) {
             return beforeResult;
         }
-
         try {
             if (insert(m)) {
                 ResponseInfo afterResult = createAfter(m);
@@ -112,13 +110,13 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
         if (idArray == null || idArray.length == 0) {
             result.setMessage("请选择要删除的数据行");
         } else {
-            ResponseInfo beforeResult = deleteBefore(ids);
+            EntityWrapper ew = new EntityWrapper<T>();
+            ResponseInfo beforeResult = deleteBefore(ids, ew);
             if (beforeResult != null) {
                 return beforeResult;
             }
 
             try {
-                EntityWrapper ew = new EntityWrapper<T>();
                 ew.in("id", ids);
                 if (delete(ew)) {
                     ResponseInfo afterResult = deleteAfter(ids);
@@ -241,7 +239,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
      * @param ids
      * @return
      */
-    protected ResponseInfo deleteBefore(String ids) {
+    protected ResponseInfo deleteBefore(String ids, EntityWrapper<T> ew) {
         return null;
     }
 
