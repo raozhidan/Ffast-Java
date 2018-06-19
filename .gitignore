@@ -1,18 +1,18 @@
 # Created by .ignore support plugin (hsz.mobi)
 /.idea/
-/ffast-core/target/
-/ffast-admin/target/
-/ffast-generator/target/
+/feiduyang-core/target/
+/feiduyang-admin/target/
+/feiduyang-generator/target/
 .mvn
 /*.iml
 *.iml
-/ffast-generator/*.iml
-/ffast-admin/*.iml
-/ffast-parent/*.iml
-/ffast.iml
-/ffast-admin/ffast-admin.iml
-/ffast-core/ffast-core.iml
-/ffast-generator/ffast-generator.iml
-/ffast-admin/src/main/resources/application-private.yml
-/ffast-admin/src/main/resources/application-private-dev.yml
+/feiduyang-generator/*.iml
+/feiduyang-admin/*.iml
+/feiduyang-parent/*.iml
+/feiduyang.iml
+/feiduyang-admin/feiduyang-admin.iml
+/feiduyang-core/feiduyang-core.iml
+/feiduyang-generator/feiduyang-generator.iml
+/feiduyang-admin/src/main/resources/application-private.yml
+/feiduyang-admin/src/main/resources/application-private-dev.yml
 
