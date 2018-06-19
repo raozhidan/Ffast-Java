@@ -27,7 +27,7 @@ import java.util.List;
  * @version：1.0
  */
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-public class CrudServiceImpl<M extends BaseMapper<T>, T extends CommonBaseEntity, ID extends Serializable> extends BaseService<M, T> implements ICrudService<T, ID> {
+public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID extends Serializable> extends BaseService<M, T> implements ICrudService<T, ID> {
     private static Logger logger = LoggerFactory.getLogger(CrudServiceImpl.class);
 
     @Resource
@@ -86,7 +86,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends CommonBaseEntity
                 BeanUtils.copyProperties(oldM, m);
                 status = updateAllColumnById(m);
             } else {
-                status = updateById(m);
+                status = lastModifierIdId(m);
             }
         }
         if (status) {

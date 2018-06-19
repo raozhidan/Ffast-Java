@@ -17,7 +17,7 @@ import java.util.Map;
  * @author：dzy
  * @version：1.0
  */
-public class BaseService<M extends BaseMapper<T>, T extends CommonBaseEntity> extends ServiceImpl<M, T> {
+public class BaseService<M extends BaseMapper<T>, T extends BaseEntity> extends ServiceImpl<M, T> {
     protected HttpServletRequest getRequest() {
         return HttpServletUtils.getRequest();
     }

@@ -2,7 +2,7 @@ package com.feiduyang.web.entity.management;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.feiduyang.core.support.BaseManagementEntity;
+import com.feiduyang.core.support.BaseEntity;
 
 /**
  * @description: RFID标签信息
@@ -12,7 +12,7 @@ import com.feiduyang.core.support.BaseManagementEntity;
  * @version: 1.0
  */
 @TableName(value = "t_rfid_tag_info", resultMap = "BaseResultMap")
-public class RfidTagInfo extends BaseManagementEntity<RfidTagInfo> {
+public class RfidTagInfo extends BaseEntity<RfidTagInfo> {
 
     private static final long serialVersionUID = 1L;
 

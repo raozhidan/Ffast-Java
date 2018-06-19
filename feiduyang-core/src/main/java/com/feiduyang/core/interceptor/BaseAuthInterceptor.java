@@ -1,13 +1,14 @@
 package com.feiduyang.core.interceptor;
 
 
+import com.baomidou.mybatisplus.toolkit.ReflectionKit;
 import com.feiduyang.core.annotations.Logined;
 import com.feiduyang.core.annotations.Permission;
+import com.feiduyang.core.auth.AuthCurrentUser;
+import com.feiduyang.core.auth.OperatorBase;
 import com.feiduyang.core.auth.OperatorUtils;
 import com.feiduyang.core.utils.ResultCode;
-import com.feiduyang.core.auth.OperatorBase;
 import com.feiduyang.core.vo.ResponseInfo;
-import com.baomidou.mybatisplus.toolkit.ReflectionKit;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,6 +93,7 @@ public abstract class BaseAuthInterceptor<T extends OperatorBase> extends Handle
         if (loginVerify) {
             Class<T> tClass = ReflectionKit.getSuperClassGenricType(this.getClass(), 0);
             T loginUser = operatorUtils.getTokenUser(request, tClass);
+            AuthCurrentUser.setUser(loginUser);
             request.setAttribute("loginUser", loginUser);
             if (loginUser == null) {
                 //未登录
@@ -143,6 +145,7 @@ public abstract class BaseAuthInterceptor<T extends OperatorBase> extends Handle
     public void afterCompletion(HttpServletRequest request,
                                 HttpServletResponse response, Object o, Exception excptn)
             throws Exception {
+        AuthCurrentUser.removeUser();
     }
 
 

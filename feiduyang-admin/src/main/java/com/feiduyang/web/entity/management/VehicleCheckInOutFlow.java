@@ -2,7 +2,7 @@ package com.feiduyang.web.entity.management;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.feiduyang.core.support.BaseManagementEntity;
+import com.feiduyang.core.support.BaseEntity;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ import java.util.Date;
  * @version: 1.0
  */
 @TableName(value = "t_vehicle_check_in_out_flow", resultMap = "BaseResultMap")
-public class VehicleCheckInOutFlow extends BaseManagementEntity<VehicleCheckInOutFlow> {
+public class VehicleCheckInOutFlow extends BaseEntity<VehicleCheckInOutFlow> {
 
     private static final long serialVersionUID = 1L;
 

@@ -5,9 +5,9 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.management.ChannelInfo">
         <result column="id" property="id"/> <!--  -->
-        <result column="create_by" property="createBy"/> <!-- 创建人 -->
+        <result column="creator_id" property="creatorId"/> <!-- 创建人 -->
         <result column="create_time" property="createTime"/> <!-- 创建时间 -->
-        <result column="update_by" property="updateBy"/> <!-- 更新人 -->
+        <result column="last_modifier_id" property="lastModifierId"/> <!-- 更新人 -->
         <result column="update_time" property="updateTime"/> <!-- 更新时间 -->
         <result column="channel_name" property="channelName"/> <!-- 渠道名称 -->
         <result column="channel_no" property="channelNo"/> <!-- 渠道编号 -->
@@ -23,14 +23,14 @@
             <if test="m.id != null">
                 AND id = #{m.id}  <!--  -->
             </if>
-            <if test="m.createBy != null">
-                AND create_by = #{m.createBy}  <!-- 创建人 -->
+            <if test="m.creatorId != null">
+                AND creator_id = #{m.creatorId}  <!-- 创建人 -->
             </if>
             <if test="m.createTime != null">
                 AND create_time = #{m.createTime}  <!-- 创建时间 -->
             </if>
-            <if test="m.updateBy != null">
-                AND update_by = #{m.updateBy}  <!-- 更新人 -->
+            <if test="m.lastModifierId != null">
+                AND last_modifier_id = #{m.lastModifierId}  <!-- 更新人 -->
             </if>
             <if test="m.updateTime != null">
                 AND update_time = #{m.updateTime}  <!-- 更新时间 -->

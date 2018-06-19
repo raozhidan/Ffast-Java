@@ -2,7 +2,7 @@ package com.feiduyang.web.entity.management;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.feiduyang.core.support.BaseManagementEntity;
+import com.feiduyang.core.support.BaseEntity;
 
 import java.math.BigDecimal;
 
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  * @version: 1.0
  */
 @TableName(value = "t_pay_flow", resultMap = "BaseResultMap")
-public class PayFlow extends BaseManagementEntity<PayFlow> {
+public class PayFlow extends BaseEntity<PayFlow> {
 
     private static final long serialVersionUID = 1L;
 

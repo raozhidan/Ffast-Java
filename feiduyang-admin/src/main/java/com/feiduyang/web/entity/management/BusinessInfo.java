@@ -2,7 +2,7 @@ package com.feiduyang.web.entity.management;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.feiduyang.core.support.BaseManagementEntity;
+import com.feiduyang.core.support.BaseEntity;
 
 /**
  * @description: 商户信息
@@ -12,7 +12,7 @@ import com.feiduyang.core.support.BaseManagementEntity;
  * @version: 1.0
  */
 @TableName(value = "t_business_info", resultMap = "BaseResultMap")
-public class BusinessInfo extends BaseManagementEntity<BusinessInfo> {
+public class BusinessInfo extends BaseEntity<BusinessInfo> {
 
     private static final long serialVersionUID = 1L;
 

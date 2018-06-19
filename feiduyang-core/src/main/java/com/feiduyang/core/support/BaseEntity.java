@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @author：dzy
  * @version：1.0
  */
-public class BaseEntity<T extends Model> extends Model<T> implements Serializable, CommonBaseEntity {
+public class BaseEntity<T extends Model> extends Model<T> implements Serializable {
 
     @TableField(exist = false)
     private static final long serialVersionUID = -34115333603863619L;
@@ -50,7 +50,6 @@ public class BaseEntity<T extends Model> extends Model<T> implements Serializabl
     @TableField("last_modifier_id")
     private Long lastModifierId;
 
-    @Override
     public Long getId() {
         return id;
     }

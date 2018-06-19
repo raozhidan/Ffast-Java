@@ -1,14 +1,15 @@
 package com.feiduyang.core.support;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.feiduyang.core.annotations.CrudConfig;
 import com.feiduyang.core.annotations.Permission;
+import com.feiduyang.core.auth.AuthCurrentUser;
 import com.feiduyang.core.utils.AnnotationUtils;
 import com.feiduyang.core.vo.ResponseInfo;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.baomidou.mybatisplus.plugins.Page;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Method;
@@ -82,7 +83,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
         }
         // 查询字段
         String[] properties = ((simple != null && simple) ? getSimpleProperties() : getProperties());
-        Page<T> pageM = new Page<T>();
+        Page<T> pageM = new Page<>();
         if (pageSize == null || page == null) {
             pageSize = 1000;
             page = 0;
@@ -112,7 +113,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @Permission(value = "create")
     public ResponseInfo create(T m) {
-        m.setCreatorId(getLoginUserId());
+        m.setCreatorId(AuthCurrentUser.getUserId());
         ResponseInfo beforeResult = createBefore(m);
         if (beforeResult != null) {
             return beforeResult;
@@ -132,7 +133,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @Permission(value = "update")
     public ResponseInfo update(T m) {
-        m.setLastModifierId(getLoginUserId());
+        m.setLastModifierId(AuthCurrentUser.getUserId());
         ResponseInfo beforeResult = updateBefore(m);
         if (beforeResult != null) {
             return beforeResult;

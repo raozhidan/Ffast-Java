@@ -62,9 +62,9 @@ public class MpGenerator {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("lixin");
-        dsc.setPassword("Lixin_360");
-        dsc.setUrl("jdbc:mysql://10.40.10.210:3306/ffast?useUnicode=true&characterEncoding=utf-8");
+        dsc.setUsername("rzd");
+        dsc.setPassword("Raozhidan123@");
+        dsc.setUrl("jdbc:mysql://192.168.11.101:3306/ffast?useUnicode=true&characterEncoding=utf-8");
         mpg.setDataSource(dsc);
 
 
@@ -88,7 +88,7 @@ public class MpGenerator {
         strategy.setSuperEntityClass("BaseManagementEntity");
         // 自定义实体，公共字段
         //strategy.setSuperEntityColumns(new String[]{"id", "name", "creator_id", "create_time", "last_modify_time", "last_modifier_id"});
-        strategy.setSuperEntityColumns(new String[]{"id", "create_by", "create_time", "update_time", "update_by"});
+        strategy.setSuperEntityColumns(new String[]{"id", "creator_id", "create_time", "update_time", "last_modifier_id"});
         // 自定义 mapper 父类
         //strategy.setSuperMapperClass("com.baomidou.demo.TestMapper");
         // 自定义 service 父类

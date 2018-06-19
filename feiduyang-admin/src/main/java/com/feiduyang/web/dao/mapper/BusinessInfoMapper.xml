@@ -5,8 +5,8 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.management.BusinessInfo">
         <result column="id" property="id"/> <!--  -->
-        <result column="create_by" property="createBy"/> <!--  -->
-        <result column="update_by" property="updateBy"/> <!--  -->
+        <result column="creator_id" property="creatorId"/> <!--  -->
+        <result column="last_modifier_id" property="lastModifierId"/> <!--  -->
         <result column="create_time" property="createTime"/> <!--  -->
         <result column="update_time" property="updateTime"/> <!--  -->
         <result column="business_no" property="businessNo"/> <!-- 商户编号 -->
@@ -29,11 +29,11 @@
             <if test="m.id != null">
                 AND id = #{m.id}  <!--  -->
             </if>
-            <if test="m.createBy != null">
-                AND create_by = #{m.createBy}  <!--  -->
+            <if test="m.creatorId != null">
+                AND creator_id = #{m.creatorId}  <!--  -->
             </if>
-            <if test="m.updateBy != null">
-                AND update_by = #{m.updateBy}  <!--  -->
+            <if test="m.lastModifierId != null">
+                AND last_modifier_id = #{m.lastModifierId}  <!--  -->
             </if>
             <if test="m.createTime != null">
                 AND create_time = #{m.createTime}  <!--  -->

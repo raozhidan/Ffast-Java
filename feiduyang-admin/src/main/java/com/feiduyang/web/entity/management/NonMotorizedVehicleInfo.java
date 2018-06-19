@@ -2,7 +2,7 @@ package com.feiduyang.web.entity.management;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.feiduyang.core.support.BaseManagementEntity;
+import com.feiduyang.core.support.BaseEntity;
 
 /**
  * @description: 非机动车信息
@@ -12,7 +12,7 @@ import com.feiduyang.core.support.BaseManagementEntity;
  * @version: 1.0
  */
 @TableName(value = "t_non_motorized_vehicle_info", resultMap = "BaseResultMap")
-public class NonMotorizedVehicleInfo extends BaseManagementEntity<NonMotorizedVehicleInfo> {
+public class NonMotorizedVehicleInfo extends BaseEntity<NonMotorizedVehicleInfo> {
 
     private static final long serialVersionUID = 1L;
 
