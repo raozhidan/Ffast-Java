@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feiduyang.web.dao.management.BusinessInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.management.BusinessInfo">
+        <result column="id" property="id"/> <!--  -->
+        <result column="create_by" property="createBy"/> <!--  -->
+        <result column="update_by" property="updateBy"/> <!--  -->
+        <result column="create_time" property="createTime"/> <!--  -->
+        <result column="update_time" property="updateTime"/> <!--  -->
+        <result column="business_no" property="businessNo"/> <!-- 商户编号 -->
+        <result column="business_name" property="businessName"/> <!-- 商户名称 -->
+        <result column="business_person_name" property="businessPersonName"/> <!-- 商户联系人 -->
+        <result column="business_phone" property="businessPhone"/> <!-- 商户联系电话 -->
+        <result column="business_channel_id" property="businessChannelId"/> <!-- 商户所属渠道 -->
+        <result column="business_address" property="businessAddress"/> <!-- 商户地址 -->
+        <result column="business_society_code" property="businessSocietyCode"/> <!-- 商户信用代码 -->
+        <result column="business_address_code" property="businessAddressCode"/> <!-- 商户所在地区编码 -->
+        <result column="business_status" property="businessStatus"/> <!-- 商户状态 -->
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        business_no, business_name, business_person_name, business_phone, business_channel_id, business_address, business_society_code, business_address_code, business_status
+    </sql>
+    <!-- 通用查询条件 -->
+    <sql id="Find_List_Where">
+        <where>
+            <if test="m.id != null">
+                AND id = #{m.id}  <!--  -->
+            </if>
+            <if test="m.createBy != null">
+                AND create_by = #{m.createBy}  <!--  -->
+            </if>
+            <if test="m.updateBy != null">
+                AND update_by = #{m.updateBy}  <!--  -->
+            </if>
+            <if test="m.createTime != null">
+                AND create_time = #{m.createTime}  <!--  -->
+            </if>
+            <if test="m.updateTime != null">
+                AND update_time = #{m.updateTime}  <!--  -->
+            </if>
+            <if test="m.businessNo != null and m.businessNo != ''">
+                AND business_no = #{m.businessNo}  <!-- 商户编号 -->
+            </if>
+            <if test="m.businessName != null and m.businessName != ''">
+                AND business_name = #{m.businessName}  <!-- 商户名称 -->
+            </if>
+            <if test="m.businessPersonName != null and m.businessPersonName != ''">
+                AND business_person_name = #{m.businessPersonName}  <!-- 商户联系人 -->
+            </if>
+            <if test="m.businessPhone != null and m.businessPhone != ''">
+                AND business_phone = #{m.businessPhone}  <!-- 商户联系电话 -->
+            </if>
+            <if test="m.businessChannelId != null">
+                AND business_channel_id = #{m.businessChannelId}  <!-- 商户所属渠道 -->
+            </if>
+            <if test="m.businessAddress != null and m.businessAddress != ''">
+                AND business_address = #{m.businessAddress}  <!-- 商户地址 -->
+            </if>
+            <if test="m.businessSocietyCode != null and m.businessSocietyCode != ''">
+                AND business_society_code = #{m.businessSocietyCode}  <!-- 商户信用代码 -->
+            </if>
+            <if test="m.businessAddressCode != null and m.businessAddressCode != ''">
+                AND business_address_code = #{m.businessAddressCode}  <!-- 商户所在地区编码 -->
+            </if>
+            <if test="m.businessStatus != null">
+                AND business_status = #{m.businessStatus}  <!-- 商户状态 -->
+            </if>
+        </where>
+        ORDER BY id ASC
+    </sql>
+
+    <!--增改查范本-->
+    <!--
+    <select id="select" resultType="BusinessInfo">
+        SELECT  <include refid="Base_Column_List" />
+        FROM t_business_info
+        <include refid="Find_List_Where" />
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="BusinessInfo">
+        INSERT INTO t_business_info ()
+        VALUES()
+    </insert>
+    <update id="update" parameterType="BusinessInfo">
+          UPDATE t_business_info
+          <set>
+        </set>
+        WHERE id = #{id}
+     </update>
+    -->
+
+</mapper>

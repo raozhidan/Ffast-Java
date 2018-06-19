@@ -1,14 +1,14 @@
 package com.feiduyang.core.support;
 
 
+import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.feiduyang.core.annotations.Log;
 import com.feiduyang.core.redis.RedisCacheUtils;
 import com.feiduyang.core.utils.FStringUtil;
 import com.feiduyang.core.vo.ResponseInfo;
 import com.feiduyang.core.vo.ServiceRowsResult;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -27,7 +27,7 @@ import java.util.List;
  * @version：1.0
  */
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID extends Serializable> extends BaseService<M, T> implements ICrudService<T, ID> {
+public class CrudServiceImpl<M extends BaseMapper<T>, T extends CommonBaseEntity, ID extends Serializable> extends BaseService<M, T> implements ICrudService<T, ID> {
     private static Logger logger = LoggerFactory.getLogger(CrudServiceImpl.class);
 
     @Resource

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feiduyang.web.dao.management.PayFlowMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.management.PayFlow">
+        <result column="id" property="id"/> <!--  -->
+        <result column="create_by" property="createBy"/> <!--  -->
+        <result column="update_by" property="updateBy"/> <!--  -->
+        <result column="create_time" property="createTime"/> <!--  -->
+        <result column="update_time" property="updateTime"/> <!--  -->
+        <result column="order_id" property="orderId"/> <!-- 订单id -->
+        <result column="order_no" property="orderNo"/> <!-- 订单编号 -->
+        <result column="pay_money" property="payMoney"/> <!-- 支付金额 -->
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        order_id, order_no, pay_money
+    </sql>
+    <!-- 通用查询条件 -->
+    <sql id="Find_List_Where">
+        <where>
+            <if test="m.id != null">
+                AND id = #{m.id}  <!--  -->
+            </if>
+            <if test="m.createBy != null">
+                AND create_by = #{m.createBy}  <!--  -->
+            </if>
+            <if test="m.updateBy != null">
+                AND update_by = #{m.updateBy}  <!--  -->
+            </if>
+            <if test="m.createTime != null">
+                AND create_time = #{m.createTime}  <!--  -->
+            </if>
+            <if test="m.updateTime != null">
+                AND update_time = #{m.updateTime}  <!--  -->
+            </if>
+            <if test="m.orderId != null">
+                AND order_id = #{m.orderId}  <!-- 订单id -->
+            </if>
+            <if test="m.orderNo != null and m.orderNo != ''">
+                AND order_no = #{m.orderNo}  <!-- 订单编号 -->
+            </if>
+            <if test="m.payMoney != null">
+                AND pay_money = #{m.payMoney}  <!-- 支付金额 -->
+            </if>
+        </where>
+        ORDER BY id ASC
+    </sql>
+
+    <!--增改查范本-->
+    <!--
+    <select id="select" resultType="PayFlow">
+        SELECT  <include refid="Base_Column_List" />
+        FROM t_pay_flow
+        <include refid="Find_List_Where" />
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="PayFlow">
+        INSERT INTO t_pay_flow ()
+        VALUES()
+    </insert>
+    <update id="update" parameterType="PayFlow">
+          UPDATE t_pay_flow
+          <set>
+        </set>
+        WHERE id = #{id}
+     </update>
+    -->
+
+</mapper>

@@ -29,7 +29,7 @@ public class MpGenerator {
         final String version = "1.0";
 
         final String projectBase = "D://projects//ffast_generator";
-        String author = "dzy";
+        String author = "zhidan.rao";
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -62,9 +62,9 @@ public class MpGenerator {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("coin_web");
-        dsc.setPassword("dk93&*6FLJ39r");
-        dsc.setUrl("jdbc:mysql://172.16.2.155:3306/coin_web?useUnicode=true&characterEncoding=utf-8");
+        dsc.setUsername("lixin");
+        dsc.setPassword("Lixin_360");
+        dsc.setUrl("jdbc:mysql://10.40.10.210:3306/ffast?useUnicode=true&characterEncoding=utf-8");
         mpg.setDataSource(dsc);
 
 
@@ -72,7 +72,7 @@ public class MpGenerator {
         List<TableFill> tableFillList = new ArrayList<>();
         tableFillList.add(new TableFill("create_time", FieldFill.INSERT));
         tableFillList.add(new TableFill("last_modify_time", FieldFill.INSERT_UPDATE));
-
+        tableFillList.add(new TableFill("update_time", FieldFill.INSERT_UPDATE));
         final String apiPrefix = "api";
         final String resPrefix = "web";
         // 策略配置
@@ -80,13 +80,15 @@ public class MpGenerator {
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
         strategy.setTablePrefix(new String[]{"t_"});// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"t_web_article", "t_web_article_category", "t_web_banner", "t_web_config", "t_web_friend"}); // 需要生成的表
+        // strategy.setInclude(new String[]{"t_web_article", "t_web_article_category", "t_web_banner", "t_web_config", "t_web_friend"}); // 需要生成的表
+        strategy.setExclude(new String[]{"t_sys_attach", "t_sys_dict", "t_sys_dict_type", "t_sys_log", "t_sys_res", "t_sys_role", "t_sys_role_res", "t_sys_user", "t_sys_user_role", "t_work_backlog", "t_flyway_schema"});
         strategy.setTableFillList(tableFillList);
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类
-        strategy.setSuperEntityClass("BaseEntity");
+        strategy.setSuperEntityClass("BaseManagementEntity");
         // 自定义实体，公共字段
-        strategy.setSuperEntityColumns(new String[]{"id", "name", "creator_id", "create_time", "last_modify_time", "last_modifier_id"});
+        //strategy.setSuperEntityColumns(new String[]{"id", "name", "creator_id", "create_time", "last_modify_time", "last_modifier_id"});
+        strategy.setSuperEntityColumns(new String[]{"id", "create_by", "create_time", "update_time", "update_by"});
         // 自定义 mapper 父类
         //strategy.setSuperMapperClass("com.baomidou.demo.TestMapper");
         // 自定义 service 父类
@@ -130,28 +132,28 @@ public class MpGenerator {
             }
         };
 
-        // 自定义 jsp  js 生成
+//        // 自定义 jsp  js 生成
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
-        focList.add(new FileOutConfig("/templates/vue.vm") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                String vueFileName = tableInfo.getEntityName().substring(0, 1).toLowerCase() +
-                        tableInfo.getEntityName().substring(1, tableInfo.getEntityName().length()) + ".vue";
-                return projectBase + "//pages//" + resPrefix + "//" + vueFileName;
-            }
-        });
-        cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
+//        focList.add(new FileOutConfig("/templates/vue.vm") {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                String vueFileName = tableInfo.getEntityName().substring(0, 1).toLowerCase() +
+//                        tableInfo.getEntityName().substring(1, tableInfo.getEntityName().length()) + ".vue";
+//                return projectBase + "//pages//" + resPrefix + "//" + vueFileName;
+//            }
+//        });
+//        cfg.setFileOutConfigList(focList);
+//        mpg.setCfg(cfg);
 
         // 调整 xml 生成目录演示
-         /*focList.add(new FileOutConfig("/templates/mapper.xml.vm") {
+        focList.add(new FileOutConfig("/templates/mapper.xml.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return projectBase+"//src//main//resources//sqlMapperXml//" + tableInfo.getEntityName() + "Mapper.xml";
             }
         });
-        cfg.setFileOutConfigList(focList);*/
-//        mpg.setCfg(cfg);
+        cfg.setFileOutConfigList(focList);
+        mpg.setCfg(cfg);
 
         // 关闭默认 xml 生成，调整生成 至 根目录
         TemplateConfig tc = new TemplateConfig();

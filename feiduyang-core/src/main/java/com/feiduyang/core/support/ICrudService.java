@@ -1,9 +1,9 @@
 package com.feiduyang.core.support;
 
-import com.feiduyang.core.vo.ServiceRowsResult;
-import com.feiduyang.core.vo.ResponseInfo;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
+import com.feiduyang.core.vo.ResponseInfo;
+import com.feiduyang.core.vo.ServiceRowsResult;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @author：dzy
  * @version：1.0
  */
-public interface ICrudService<T extends BaseEntity,ID> extends IService<T> {
+public interface ICrudService<T extends CommonBaseEntity, ID> extends IService<T> {
     /**
      * @description: 插入对象
      * @createTime: 2017-9-5 10:00

@@ -1,10 +1,10 @@
 package com.feiduyang.core.support;
 
-import com.feiduyang.core.auth.OperatorBase;
-import com.feiduyang.core.utils.HttpServletUtils;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.toolkit.ReflectionKit;
+import com.feiduyang.core.auth.OperatorBase;
+import com.feiduyang.core.utils.HttpServletUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +17,7 @@ import java.util.Map;
  * @author：dzy
  * @version：1.0
  */
-public class BaseService<M extends BaseMapper<T>, T extends BaseEntity> extends ServiceImpl<M, T> {
+public class BaseService<M extends BaseMapper<T>, T extends CommonBaseEntity> extends ServiceImpl<M, T> {
     protected HttpServletRequest getRequest() {
         return HttpServletUtils.getRequest();
     }
