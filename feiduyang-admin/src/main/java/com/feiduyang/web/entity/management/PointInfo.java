@@ -78,6 +78,17 @@ public class PointInfo extends BaseEntity<PointInfo> {
     @TableField("point_temporary_fee")
     private BigDecimal pointTemporaryFee;
 
+    @TableField(exist = false)
+    private String pointBusinessName;
+
+    public String getPointBusinessName() {
+        return pointBusinessName;
+    }
+
+    public void setPointBusinessName(String pointBusinessName) {
+        this.pointBusinessName = pointBusinessName;
+    }
+
     public String getPointName() {
         return pointName;
     }

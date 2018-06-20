@@ -1,5 +1,7 @@
 package com.feiduyang.web.controller.management;
 
+import com.feiduyang.core.annotations.Logined;
+import com.feiduyang.core.annotations.Permission;
 import com.feiduyang.core.support.BaseCrudController;
 import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
 import com.feiduyang.web.service.management.IVehicleCheckInOutFlowService;
@@ -19,6 +21,8 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("/api/management/vehicleCheckInOutFlow")
+@Permission(value = "vehicleCheckInOutFlow")
+@Logined
 public class VehicleCheckInOutFlowController extends BaseCrudController<VehicleCheckInOutFlow, IVehicleCheckInOutFlowService, Long> {
 
     private static Logger logger = LoggerFactory.getLogger(VehicleCheckInOutFlowController.class);

@@ -1,5 +1,7 @@
 package com.feiduyang.web.controller.management;
 
+import com.feiduyang.core.annotations.Logined;
+import com.feiduyang.core.annotations.Permission;
 import com.feiduyang.core.support.BaseCrudController;
 import com.feiduyang.web.entity.management.OwnerProductInfo;
 import com.feiduyang.web.service.management.IOwnerProductInfoService;
@@ -19,6 +21,8 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("/api/management/ownerProductInfo")
+@Permission(value = "ownerProductInfo")
+@Logined
 public class OwnerProductInfoController extends BaseCrudController<OwnerProductInfo, IOwnerProductInfoService, Long> {
 
     private static Logger logger = LoggerFactory.getLogger(OwnerProductInfoController.class);

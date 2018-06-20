@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("/api/management/productInfo")
-@Permission(value = "product")
+@Permission(value = "productInfo")
 @Logined
 public class ProductInfoController extends BaseCrudController<ProductInfo, IProductInfoService, Long> {
 
