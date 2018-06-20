@@ -1,5 +1,7 @@
 package com.feiduyang.web.controller.management;
 
+import com.feiduyang.core.annotations.Logined;
+import com.feiduyang.core.annotations.Permission;
 import com.feiduyang.core.support.BaseCrudController;
 import com.feiduyang.web.entity.management.BusinessInfo;
 import com.feiduyang.web.service.management.IBusinessInfoService;
@@ -19,6 +21,8 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("/api/management/businessInfo")
+@Permission(value = "business")
+@Logined
 public class BusinessInfoController extends BaseCrudController<BusinessInfo, IBusinessInfoService, Long> {
 
     private static Logger logger = LoggerFactory.getLogger(BusinessInfoController.class);
@@ -35,6 +39,5 @@ public class BusinessInfoController extends BaseCrudController<BusinessInfo, IBu
     protected Logger getLogger() {
         return logger;
     }
-
 
 }

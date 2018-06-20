@@ -1,5 +1,7 @@
 package com.feiduyang.web.controller.management;
 
+import com.feiduyang.core.annotations.Logined;
+import com.feiduyang.core.annotations.Permission;
 import com.feiduyang.core.support.BaseCrudController;
 import com.feiduyang.web.entity.management.ChannelInfo;
 import com.feiduyang.web.service.management.IChannelInfoService;
@@ -19,6 +21,8 @@ import javax.annotation.Resource;
  */
 @Controller
 @RequestMapping("/api/management/channelInfo")
+@Permission(value = "channelInfo")
+@Logined
 public class ChannelInfoController extends BaseCrudController<ChannelInfo, IChannelInfoService, Long> {
 
     private static Logger logger = LoggerFactory.getLogger(ChannelInfoController.class);

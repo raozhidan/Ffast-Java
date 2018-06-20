@@ -42,6 +42,18 @@ public class NonMotorizedVehicleInfo extends BaseEntity<NonMotorizedVehicleInfo>
     @TableField("vehicle_tag_no")
     private String vehicleTagNo;
 
+
+    @TableField(exist = false)
+    private String ownerName;
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
     public String getVehicleNo() {
         return vehicleNo;
     }
