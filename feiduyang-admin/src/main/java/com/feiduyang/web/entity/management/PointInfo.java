@@ -17,9 +17,6 @@ import java.math.BigDecimal;
 public class PointInfo extends BaseEntity<PointInfo> {
 
     private static final long serialVersionUID = 1L;
-
-    @TableField("t_point_infocol1")
-    private String tPointInfocol1;
     /**
      * 点位名称
      */
@@ -63,8 +60,8 @@ public class PointInfo extends BaseEntity<PointInfo> {
     /**
      * 点位所属单位
      */
-    @TableField("point_charg_company")
-    private String pointChargCompany;
+    @TableField("point_charge_company")
+    private String pointChargeCompany;
     /**
      * 点位规模（有多少辆车）
      */
@@ -80,14 +77,6 @@ public class PointInfo extends BaseEntity<PointInfo> {
      */
     @TableField("point_temporary_fee")
     private BigDecimal pointTemporaryFee;
-
-    public String gettPointInfocol1() {
-        return tPointInfocol1;
-    }
-
-    public void settPointInfocol1(String tPointInfocol1) {
-        this.tPointInfocol1 = tPointInfocol1;
-    }
 
     public String getPointName() {
         return pointName;
@@ -153,12 +142,12 @@ public class PointInfo extends BaseEntity<PointInfo> {
         this.pointMaintenancePersonPhone = pointMaintenancePersonPhone;
     }
 
-    public String getPointChargCompany() {
-        return pointChargCompany;
+    public String getPointChargeCompany() {
+        return pointChargeCompany;
     }
 
-    public void setPointChargCompany(String pointChargCompany) {
-        this.pointChargCompany = pointChargCompany;
+    public void setPointChargeCompany(String pointChargeCompany) {
+        this.pointChargeCompany = pointChargeCompany;
     }
 
     public Integer getPointCapacity() {

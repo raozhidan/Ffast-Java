@@ -86,7 +86,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
                 BeanUtils.copyProperties(oldM, m);
                 status = updateAllColumnById(m);
             } else {
-                status = lastModifierIdId(m);
+                status = updateById(m);
             }
         }
         if (status) {

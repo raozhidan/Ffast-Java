@@ -46,17 +46,17 @@ public class ResController extends BaseCrudController<Res, IResService, Long> {
 
     @Override
     protected ResponseInfo createBefore(Res m) {
-        return new ResponseInfo(false).setMessage("暂时关闭该功能！");
+        return null;
     }
 
     @Override
     protected ResponseInfo deleteBefore(String ids) {
-        return new ResponseInfo(false).setMessage("暂时关闭该功能！");
+        return null;
     }
 
     @Override
     protected ResponseInfo updateBefore(Res m) {
-        return new ResponseInfo(false).setMessage("暂时关闭该功能！");
+        return null;
     }
 
     @Override

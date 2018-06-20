@@ -68,7 +68,7 @@ public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> imp
             user.setId(id);
             user.setPwd(PasswordUtil.getPwd(user.getSalt(), PWD_DEFAULT));
             try {
-                int res = userMapper.lastModifierIdId(user);
+                int res = userMapper.updateById(user);
                 if (res > 0) {
                     result.setSuccess(true);
                     result.setMessage("重置成功，密码重置为：" + PWD_DEFAULT);
@@ -143,7 +143,7 @@ public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> imp
             User u = new User();
             u.setId(userId);
             u.setPwd(PasswordUtil.getPwd(user.getSalt(), newpwd));
-            Integer reg = userMapper.lastModifierIdId(u);
+            Integer reg = userMapper.updateById(u);
             if (reg.equals(new Integer(1))) {
                 result.setSuccess(true);
                 result.setMessage("修改成功！");

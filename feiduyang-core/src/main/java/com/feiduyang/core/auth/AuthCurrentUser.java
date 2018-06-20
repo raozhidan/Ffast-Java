@@ -3,7 +3,7 @@ package com.feiduyang.core.auth;
 /**
  * 当前登陆用户
  *
- * @author 45984（rao.zhidan@sccaptain.com.cn）
+ * @author zhidan.rao
  * @create 2018/6/19
  */
 public class AuthCurrentUser {

@@ -62,7 +62,7 @@ CREATE TABLE  `ffast`.`t_point_info` (
   `point_business_id` BIGINT(20) NULL COMMENT '点位所属商户',
   `point_maintenance_person` VARCHAR(20) NULL COMMENT '点位维护人员',
   `point_maintenance_person_phone` VARCHAR(15) NULL COMMENT '点位维护人员电话',
-  `point_charg_company` VARCHAR(45) NULL COMMENT '点位所属单位',
+  `point_charge_company` VARCHAR(45) NULL COMMENT '点位所属单位',
   `point_capacity` INT NULL COMMENT '点位规模（有多少辆车）',
   `point_status` TINYINT(4) NULL COMMENT '点位状态',
   `point_temporary_fee` DECIMAL(4,2) NULL COMMENT '点位临时停车费用',

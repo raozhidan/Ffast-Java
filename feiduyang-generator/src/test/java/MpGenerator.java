@@ -62,9 +62,9 @@ public class MpGenerator {
             }
         });
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("rzd");
-        dsc.setPassword("Raozhidan123@");
-        dsc.setUrl("jdbc:mysql://192.168.11.101:3306/ffast?useUnicode=true&characterEncoding=utf-8");
+        dsc.setUsername("lixin");
+        dsc.setPassword("Lixin_360");
+        dsc.setUrl("jdbc:mysql://10.40.10.210:3306/ffast?useUnicode=true&characterEncoding=utf-8");
         mpg.setDataSource(dsc);
 
 
@@ -74,7 +74,7 @@ public class MpGenerator {
         tableFillList.add(new TableFill("last_modify_time", FieldFill.INSERT_UPDATE));
         tableFillList.add(new TableFill("update_time", FieldFill.INSERT_UPDATE));
         final String apiPrefix = "api";
-        final String resPrefix = "web";
+        final String resPrefix = "management";
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
@@ -88,7 +88,7 @@ public class MpGenerator {
         strategy.setSuperEntityClass("BaseManagementEntity");
         // 自定义实体，公共字段
         //strategy.setSuperEntityColumns(new String[]{"id", "name", "creator_id", "create_time", "last_modify_time", "last_modifier_id"});
-        strategy.setSuperEntityColumns(new String[]{"id", "creator_id", "create_time", "update_time", "last_modifier_id"});
+        strategy.setSuperEntityColumns(new String[]{"id", "create_by", "create_time", "update_time", "update_by"});
         // 自定义 mapper 父类
         //strategy.setSuperMapperClass("com.baomidou.demo.TestMapper");
         // 自定义 service 父类
@@ -134,26 +134,26 @@ public class MpGenerator {
 
 //        // 自定义 jsp  js 生成
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
-//        focList.add(new FileOutConfig("/templates/vue.vm") {
-//            @Override
-//            public String outputFile(TableInfo tableInfo) {
-//                String vueFileName = tableInfo.getEntityName().substring(0, 1).toLowerCase() +
-//                        tableInfo.getEntityName().substring(1, tableInfo.getEntityName().length()) + ".vue";
-//                return projectBase + "//pages//" + resPrefix + "//" + vueFileName;
-//            }
-//        });
-//        cfg.setFileOutConfigList(focList);
-//        mpg.setCfg(cfg);
-
-        // 调整 xml 生成目录演示
-        focList.add(new FileOutConfig("/templates/mapper.xml.vm") {
+        focList.add(new FileOutConfig("/templates/vue.vm") {
             @Override
             public String outputFile(TableInfo tableInfo) {
-                return projectBase+"//src//main//resources//sqlMapperXml//" + tableInfo.getEntityName() + "Mapper.xml";
+                String vueFileName = tableInfo.getEntityName().substring(0, 1).toLowerCase() +
+                        tableInfo.getEntityName().substring(1, tableInfo.getEntityName().length()) + ".vue";
+                return projectBase + "//pages//" + resPrefix + "//" + vueFileName;
             }
         });
         cfg.setFileOutConfigList(focList);
         mpg.setCfg(cfg);
+
+//        // 调整 xml 生成目录演示
+//        focList.add(new FileOutConfig("/templates/mapper.xml.vm") {
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                return projectBase+"//src//main//resources//sqlMapperXml//" + tableInfo.getEntityName() + "Mapper.xml";
+//            }
+//        });
+//        cfg.setFileOutConfigList(focList);
+//        mpg.setCfg(cfg);
 
         // 关闭默认 xml 生成，调整生成 至 根目录
         TemplateConfig tc = new TemplateConfig();
