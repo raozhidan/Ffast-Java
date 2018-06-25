@@ -1,6 +1,7 @@
 package com.feiduyang.web.service.management;
 
 import com.feiduyang.core.support.ICrudService;
+import com.feiduyang.core.vo.ResponseInfo;
 import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
 
 /**
@@ -12,4 +13,5 @@ import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
  */
 public interface IVehicleCheckInOutFlowService extends ICrudService<VehicleCheckInOutFlow, Long> {
 
+    ResponseInfo doCheck(String poingNo, String rfidTagNo);
 }

@@ -3,12 +3,15 @@ package com.feiduyang.web.controller.management;
 import com.feiduyang.core.annotations.Logined;
 import com.feiduyang.core.annotations.Permission;
 import com.feiduyang.core.support.BaseCrudController;
+import com.feiduyang.core.vo.ResponseInfo;
 import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
 import com.feiduyang.web.service.management.IVehicleCheckInOutFlowService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 
@@ -40,5 +43,17 @@ public class VehicleCheckInOutFlowController extends BaseCrudController<VehicleC
         return logger;
     }
 
+
+    /**
+     * 检查出场的车辆信息
+     *
+     * @param pointNo   点位编号
+     * @param rfidTagNo 标签编号
+     * @return 统一返回信息
+     */
+    @GetMapping("/doCheck")
+    public ResponseInfo doCheck(@RequestParam("pointNo") String pointNo, @RequestParam("rfidTagNo") String rfidTagNo) {
+        return service.doCheck(pointNo, rfidTagNo);
+    }
 
 }
