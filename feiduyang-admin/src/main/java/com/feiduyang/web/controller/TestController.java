@@ -2,12 +2,13 @@ package com.feiduyang.web.controller;
 
 import com.feiduyang.core.annotations.Logined;
 import com.feiduyang.core.auth.OperatorBase;
-import com.feiduyang.core.redis.RedisCacheUtils;
 import com.feiduyang.core.auth.OperatorUtils;
+import com.feiduyang.core.redis.RedisCacheUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.UUID;
 
 @RestController
 public class TestController {
@@ -32,6 +33,9 @@ public class TestController {
         return  1/0;
     }
 
+    public static void main(String[] args) {
+        System.out.println(UUID.randomUUID());
+    }
 
 //    @GetMapping("/getCache")
 //    public Object getCache() {

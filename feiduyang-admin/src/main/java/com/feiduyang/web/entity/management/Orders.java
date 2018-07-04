@@ -54,6 +54,60 @@ public class Orders extends BaseEntity<Orders> {
     @TableField("owner_id")
     private Long ownerId;
 
+    /**
+     * 订单类型（1 商品购买 2 停车支付）
+     */
+    private Integer orderType;
+
+    /**
+     * 微信订单号
+     */
+    private String transactionId;
+
+    /**
+     * 支付方式（1微信 2 支付宝 3 银联）
+     */
+    private Integer payType;
+
+
+    /**
+     * 用户标识
+     */
+    private String openId;
+
+
+    public Integer getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(Integer orderType) {
+        this.orderType = orderType;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    public Integer getPayType() {
+        return payType;
+    }
+
+    public void setPayType(Integer payType) {
+        this.payType = payType;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
     public String getOrderNo() {
         return orderNo;
     }

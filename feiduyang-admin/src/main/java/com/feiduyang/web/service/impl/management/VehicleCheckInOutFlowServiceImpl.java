@@ -1,8 +1,10 @@
 package com.feiduyang.web.service.impl.management;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.core.constance.OrdersConstance;
 import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.core.utils.DateUtil;
+import com.feiduyang.core.utils.MakeOrderNum;
 import com.feiduyang.core.vo.ResponseInfo;
 import com.feiduyang.web.dao.management.VehicleCheckInOutFlowMapper;
 import com.feiduyang.web.entity.management.*;
@@ -43,6 +45,8 @@ public class VehicleCheckInOutFlowServiceImpl extends CrudServiceImpl<VehicleChe
     @Resource
     VehicleCheckInOutFlowMapper checkInOutFlowMapper;
 
+    @Autowired
+    IOrdersService ordersService;
 
     @Override
     public ResponseInfo doCheck(String pointNo, String rfidTagNo, Boolean isCheckIn) {
@@ -139,7 +143,16 @@ public class VehicleCheckInOutFlowServiceImpl extends CrudServiceImpl<VehicleChe
         } else {
             //若没有通过检查，则生成一份待支付订单，支付后方可出场
             Orders orders = new Orders();
-            
+            orders.setOrderNo(MakeOrderNum.makeOrderNum());
+            //找出该点位当前设置的临时停车费用
+            orders.setOrderPrice(pointInfo.getPointTemporaryFee());
+            orders.setOrderStatus(1);
+            orders.setOwnerId(ownerInfo.getId());
+            orders.setProductId(0L);
+            orders.setProductName(pointInfo.getPointName() + "非机动车临时停车费用");
+            orders.setOrderType(OrdersConstance.OrderType.TEMPORY_FEE);
+            orders.setPayType(OrdersConstance.PayType.WECHAT_PAY);
+            ordersService.create(orders);
         }
         return responseInfo.setSuccess(true).addData("isPassCheck", isPassCheck);
     }
