@@ -2,6 +2,7 @@ package com.feiduyang.web.entity.management;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.FieldFill;
 import com.feiduyang.core.support.BaseEntity;
 
 import java.util.Date;
@@ -36,19 +37,19 @@ public class VehicleCheckInOutFlow extends BaseEntity<VehicleCheckInOutFlow> {
     /**
      * 进场时间
      */
-    @TableField("check_in_time")
+    @TableField(value = "check_in_time", fill = FieldFill.INSERT)
     private Date checkInTime;
     /**
      * 出场时间
      */
-    @TableField("check_out_time")
+    @TableField(value = "check_out_time", fill = FieldFill.INSERT_UPDATE, update = "now()")
     private Date checkOutTime;
     /**
      * 该车辆该次所使用的产品id（0 默认为不使用，即为临时停车）
      */
     @TableField("check_use_product_id")
     private Long checkUseProductId;
-
+ 
     public Long getVehicleId() {
         return vehicleId;
     }
@@ -56,6 +57,7 @@ public class VehicleCheckInOutFlow extends BaseEntity<VehicleCheckInOutFlow> {
     public void setVehicleId(Long vehicleId) {
         this.vehicleId = vehicleId;
     }
+
 
     public Long getPointId() {
         return pointId;

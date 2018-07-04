@@ -13,5 +13,5 @@ import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
  */
 public interface IVehicleCheckInOutFlowService extends ICrudService<VehicleCheckInOutFlow, Long> {
 
-    ResponseInfo doCheck(String poingNo, String rfidTagNo);
+    ResponseInfo doCheck(String pointNo, String rfidTagNo, Boolean isCheckIn);
 }

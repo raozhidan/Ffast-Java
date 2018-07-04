@@ -1,3 +1,5 @@
+package com.feiduyang.web.service.impl.management;
+
 import com.feiduyang.core.vo.ResponseInfo;
 import com.feiduyang.web.WebApplication;
 import com.feiduyang.web.service.management.IVehicleCheckInOutFlowService;
@@ -18,6 +20,8 @@ public class WebApplicationTests {
     public void contextLoads() {
         ResponseInfo responseInfo = checkInOutFlowService.doCheck("00101", "00101", false);
         System.out.println(responseInfo.toJSON());
+//        ResponseInfo responseInfo = checkInOutFlowService.doCheck("00101", "00101", true);
+//        System.out.println(responseInfo.getMessage());
     }
 
 }

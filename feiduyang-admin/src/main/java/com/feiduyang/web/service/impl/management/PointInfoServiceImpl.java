@@ -1,5 +1,6 @@
 package com.feiduyang.web.service.impl.management;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.core.vo.ServiceRowsResult;
 import com.feiduyang.web.dao.management.PointInfoMapper;
@@ -24,6 +25,13 @@ public class PointInfoServiceImpl extends CrudServiceImpl<PointInfoMapper, Point
 
     @Autowired
     IBusinessInfoService businessInfoService;
+
+
+    @Override
+    protected ServiceRowsResult listBefore(PointInfo m, EntityWrapper<PointInfo> ew) {
+        ew.eq("point_business_id", "");
+        return super.listBefore(m, ew);
+    }
 
     @Override
     protected ServiceRowsResult listAfter(PointInfo m, List<PointInfo> resultList) {

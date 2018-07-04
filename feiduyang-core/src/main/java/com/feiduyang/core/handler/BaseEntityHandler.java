@@ -1,8 +1,9 @@
 package com.feiduyang.core.handler;
 
 
-import com.feiduyang.core.utils.DateUtil;
 import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
+import com.feiduyang.core.auth.AuthCurrentUser;
+import com.feiduyang.core.utils.DateUtil;
 import org.apache.ibatis.reflection.MetaObject;
 
 /**
@@ -25,6 +26,9 @@ public class BaseEntityHandler extends MetaObjectHandler {
         //mybatis-plus版本2.0.9+
         setFieldValByName("createTime", DateUtil.getNowTimestampStr(), metaObject);
         setFieldValByName("lastModifyTime", DateUtil.getNowTimestampStr(), metaObject);
+        if (AuthCurrentUser.getUser() != null) {
+            setFieldValByName("creatorId", AuthCurrentUser.getUserId(), metaObject);
+        }
     }
 
     @Override
@@ -33,5 +37,8 @@ public class BaseEntityHandler extends MetaObjectHandler {
         //System.out.println("update fill");
         //mybatis-plus版本2.0.9+
         setFieldValByName("lastModifyTime", DateUtil.getNowTimestampStr(), metaObject);
+        if (AuthCurrentUser.getUser() != null) {
+            setFieldValByName("lastModifierId", AuthCurrentUser.getUserId(), metaObject);
+        }
     }
 }

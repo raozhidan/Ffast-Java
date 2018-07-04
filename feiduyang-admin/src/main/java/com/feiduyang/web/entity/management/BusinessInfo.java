@@ -62,8 +62,23 @@ public class BusinessInfo extends BaseEntity<BusinessInfo> {
     @TableField("business_status")
     private Integer businessStatus;
 
+    /**
+     * 商户邮件
+     */
+    @TableField("business_email")
+    private String businessEmail;
+
     @TableField(exist = false)
     private String businessChannelName;
+
+
+    public String getBusinessEmail() {
+        return businessEmail;
+    }
+
+    public void setBusinessEmail(String businessEmail) {
+        this.businessEmail = businessEmail;
+    }
 
     public String getBusinessChannelName() {
         return businessChannelName;

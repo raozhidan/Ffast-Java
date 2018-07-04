@@ -8,10 +8,10 @@ import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
 import com.feiduyang.web.service.management.IVehicleCheckInOutFlowService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  * @author: zhidan.rao
  * @version: 1.0
  */
-@Controller
+@RestController
 @RequestMapping("/api/management/vehicleCheckInOutFlow")
 @Permission(value = "vehicleCheckInOutFlow")
 @Logined
@@ -52,8 +52,9 @@ public class VehicleCheckInOutFlowController extends BaseCrudController<VehicleC
      * @return 统一返回信息
      */
     @GetMapping("/doCheck")
-    public ResponseInfo doCheck(@RequestParam("pointNo") String pointNo, @RequestParam("rfidTagNo") String rfidTagNo) {
-        return service.doCheck(pointNo, rfidTagNo);
+    public ResponseInfo doCheck(@RequestParam("pointNo") String pointNo, @RequestParam("rfidTagNo") String rfidTagNo
+            , @RequestParam("checkType") Integer checkType) {
+        return service.doCheck(pointNo, rfidTagNo, checkType == 1 ? true : false);
     }
 
 }

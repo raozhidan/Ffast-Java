@@ -36,6 +36,7 @@ CREATE TABLE  `ffast`.`t_business_info` (
   `business_address` VARCHAR(45) NULL COMMENT '商户地址',
   `business_society_code` VARCHAR(45) NULL COMMENT '商户信用代码',
   `business_address_code` VARCHAR(20) NULL COMMENT '商户所在地区编码',
+  `business_email` VARCHAR(20) NULL COMMENT '商户邮件',
   `creator_id` BIGINT(20) NULL COMMENT '创建人',
   `last_modifier_id` BIGINT(20) NULL COMMENT '更新人',
   `create_time` varchar(20) DEFAULT NULL COMMENT '创建时间',

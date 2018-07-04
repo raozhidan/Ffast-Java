@@ -28,7 +28,7 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> implements IUserService {
 
-    @Value("${auth.pwdDefault}")
+    @Value(value = "${auth.pwdDefault}")
     private String PWD_DEFAULT;
 
 

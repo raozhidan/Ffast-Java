@@ -8,12 +8,12 @@ spring:
       enabled: true
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    ##username: lixin
-    username: rzd
-    password: Raozhidan123@
-    ##password: Lixin_360
-    url: jdbc:mysql://192.168.11.101:3306/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    ##url: jdbc:mysql://10.40.10.210:3306/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: feiduyang666
+#    username: rzd
+#    password: Raozhidan123@
+#    url: jdbc:mysql://192.168.11.101:3306/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://bj-cdb-4crdkyps.sql.tencentcdb.com:63230/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
     druid:
       initialSize: 1
       maxActive: 10
@@ -25,16 +25,16 @@ spring:
     default-property-inclusion: non_null
   redis:
     enabled: true
-    host: 192.168.11.101
-    port: 6380
+#    host: 140.143.143.154
+#    port: 6379
     ##password: 123465
     #过期时间（秒）
-    expirationSecond: 0
+    expirationSecond: 1800
     #序列号方式 默认0   0:"FastJSON",1:"JackJson",2:"Msgpack"
     serializerType: 2
-    password: 12345678
-#    cluster:
-#      nodes: 10.40.10.205:7000,10.40.10.206:7000,10.40.10.207:7000
+#    password: 12345678
+    cluster:
+      nodes: 10.40.10.205:7000,10.40.10.206:7000,10.40.10.207:7000
 
 mybatis-plus:
   global-config:
@@ -56,6 +56,9 @@ auth:
   jwt:
     secret: 'ggs6fad5as6d5sa#dddfg2ddd$fdd$d@dd'
 
+
+business:
+ roleDefault: '测试'
 
 #上传配置
 upload:

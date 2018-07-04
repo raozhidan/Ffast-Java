@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev
   flyway:
-    enabled: true
+    enabled: false
     baselineOnMigrate: true
     table: t_flyway_schema
 
