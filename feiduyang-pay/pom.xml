@@ -50,9 +50,9 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>com.acts</groupId>
+            <groupId>com.alipay.sdk</groupId>
             <artifactId>alipay-sdk-java</artifactId>
-            <version>1.0.0</version>
+            <version>3.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
