@@ -12,6 +12,7 @@
     <modules>
         <module>feiduyang-core</module>
         <module>feiduyang-admin</module>
+        <module>feiduyang-pay</module>
         <module>feiduyang-generator</module>
     </modules>
 
@@ -45,7 +46,17 @@
         <jcl-over-slf4j.version>1.7.21</jcl-over-slf4j.version>
 
     </properties>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

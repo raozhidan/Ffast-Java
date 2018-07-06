@@ -2,6 +2,7 @@ package com.feiduyang.web.service.impl.management;
 
 import com.feiduyang.core.vo.ResponseInfo;
 import com.feiduyang.web.WebApplication;
+import com.feiduyang.web.service.management.IOrdersService;
 import com.feiduyang.web.service.management.IVehicleCheckInOutFlowService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +17,9 @@ public class WebApplicationTests {
     @Autowired
     IVehicleCheckInOutFlowService checkInOutFlowService;
 
+    @Autowired
+    IOrdersService ordersService;
+
     @Test
     public void contextLoads() {
         ResponseInfo responseInfo = checkInOutFlowService.doCheck("00101", "00101", false);
@@ -24,4 +28,9 @@ public class WebApplicationTests {
 //        System.out.println(responseInfo.getMessage());
     }
 
+    @Test
+    public void testFeign() {
+        String s = ordersService.testFeign();
+        System.out.println(s);
+    }
 }

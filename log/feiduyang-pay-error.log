@@ -1,0 +1,70 @@
+2018-07-06 17:01:37.078 ERROR org.springframework.boot.SpringApplication Line:842 - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'unionPayController': Unsatisfied dependency expressed through field 'unionPayService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'unionPayServiceImpl' defined in file [F:\myWork\feiduyang-Java\feiduyang-pay\target\classes\com\feiduyang\modules\unionpay\service\impl\UnionPayServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.ExceptionInInitializerError
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:587)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:373)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1344)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:578)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243)
+	at com.feiduyang.Application.main(Application.java:44)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'unionPayServiceImpl' defined in file [F:\myWork\feiduyang-Java\feiduyang-pay\target\classes\com\feiduyang\modules\unionpay\service\impl\UnionPayServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.ExceptionInInitializerError
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:587)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1065)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:584)
+	... 19 common frames omitted
+Caused by: java.lang.ExceptionInInitializerError: null
+	at com.alibaba.dubbo.config.spring.AnnotationBean.postProcessAfterInitialization(AnnotationBean.java:145)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:437)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579)
+	... 28 common frames omitted
+Caused by: java.lang.IllegalStateException: fail to create adaptive instance: java.lang.IllegalStateException: Can not create adaptive extenstion interface com.alibaba.dubbo.rpc.Protocol, cause: Failed to load extension class(interface: interface com.alibaba.dubbo.common.compiler.Compiler, class line: com.alibaba.dubbo.common.compiler.support.JavassistCompiler) in jar:file:/C:/Users/de'l'l/.m2/repository/com/alibaba/dubbo/2.8.4/dubbo-2.8.4.jar!/META-INF/dubbo/internal/com.alibaba.dubbo.common.compiler.Compiler, cause: javassist/ClassPath
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getAdaptiveExtension(ExtensionLoader.java:459)
+	at com.alibaba.dubbo.config.ServiceConfig.<clinit>(ServiceConfig.java:62)
+	... 32 common frames omitted
+Caused by: java.lang.IllegalStateException: Can not create adaptive extenstion interface com.alibaba.dubbo.rpc.Protocol, cause: Failed to load extension class(interface: interface com.alibaba.dubbo.common.compiler.Compiler, class line: com.alibaba.dubbo.common.compiler.support.JavassistCompiler) in jar:file:/C:/Users/de'l'l/.m2/repository/com/alibaba/dubbo/2.8.4/dubbo-2.8.4.jar!/META-INF/dubbo/internal/com.alibaba.dubbo.common.compiler.Compiler, cause: javassist/ClassPath
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createAdaptiveExtension(ExtensionLoader.java:723)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getAdaptiveExtension(ExtensionLoader.java:455)
+	... 33 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to load extension class(interface: interface com.alibaba.dubbo.common.compiler.Compiler, class line: com.alibaba.dubbo.common.compiler.support.JavassistCompiler) in jar:file:/C:/Users/de'l'l/.m2/repository/com/alibaba/dubbo/2.8.4/dubbo-2.8.4.jar!/META-INF/dubbo/internal/com.alibaba.dubbo.common.compiler.Compiler, cause: javassist/ClassPath
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.loadFile(ExtensionLoader.java:685)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.loadExtensionClasses(ExtensionLoader.java:591)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getExtensionClasses(ExtensionLoader.java:567)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getAdaptiveExtensionClass(ExtensionLoader.java:728)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createAdaptiveExtension(ExtensionLoader.java:721)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getAdaptiveExtension(ExtensionLoader.java:455)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createAdaptiveExtensionClass(ExtensionLoader.java:738)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.getAdaptiveExtensionClass(ExtensionLoader.java:732)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.createAdaptiveExtension(ExtensionLoader.java:721)
+	... 34 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: javassist/ClassPath
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at com.alibaba.dubbo.common.extension.ExtensionLoader.loadFile(ExtensionLoader.java:627)
+	... 42 common frames omitted
+Caused by: java.lang.ClassNotFoundException: javassist.ClassPath
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 45 common frames omitted

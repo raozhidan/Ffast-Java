@@ -12,4 +12,5 @@ import com.feiduyang.web.entity.management.Orders;
  */
 public interface IOrdersService extends ICrudService<Orders, Long> {
 
+    String testFeign();
 }

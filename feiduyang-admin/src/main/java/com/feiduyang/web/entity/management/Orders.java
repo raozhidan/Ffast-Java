@@ -34,7 +34,7 @@ public class Orders extends BaseEntity<Orders> {
     @TableField("product_name")
     private String productName;
     /**
-     * 订单状态
+     * 订单状态（1 待支付 2已支付 3 支付失败）
      */
     @TableField("order_status")
     private Integer orderStatus;
