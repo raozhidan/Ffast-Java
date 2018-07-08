@@ -1,6 +1,5 @@
 package com.feiduyang.core.auth;
 
-import java.util.List;
 import java.util.Set;
 
 /**

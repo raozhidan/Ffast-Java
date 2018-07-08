@@ -1,11 +1,12 @@
 package com.feiduyang.core.support;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.feiduyang.core.annotations.CrudConfig;
-import com.feiduyang.core.annotations.Permission;
+import com.feiduyang.common.annotations.CrudConfig;
+import com.feiduyang.common.annotations.Permission;
+import com.feiduyang.common.utils.AnnotationUtils;
+import com.feiduyang.common.vo.ResponseInfo;
+import com.feiduyang.common.vo.ServiceRowsResult;
 import com.feiduyang.core.auth.AuthCurrentUser;
-import com.feiduyang.core.utils.AnnotationUtils;
-import com.feiduyang.core.vo.ResponseInfo;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -76,8 +77,8 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
     @ResponseBody
     @RequestMapping(value = "/list")
     @Permission(value = "list")
-    public ResponseInfo list(T m, Integer pageSize, Integer page, Boolean simple, String sortField, String sortOrder) {
-        ResponseInfo beforeResult = listBefore(m);
+    public ServiceRowsResult list(T m, Integer pageSize, Integer page, Boolean simple, String sortField, String sortOrder) {
+        ServiceRowsResult beforeResult = listBefore(m);
         if (beforeResult != null) {
             return beforeResult;
         }
@@ -231,7 +232,7 @@ public abstract class BaseCrudController<T extends BaseEntity, S extends ICrudSe
      * @param m
      * @return
      */
-    protected ResponseInfo listBefore(T m) {
+    protected ServiceRowsResult listBefore(T m) {
         return null;
     }
 

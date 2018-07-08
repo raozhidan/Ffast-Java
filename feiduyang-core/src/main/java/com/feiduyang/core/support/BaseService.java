@@ -51,6 +51,7 @@ public class BaseService<M extends BaseMapper<T>, T extends BaseEntity> extends 
 
     /**
      * 获得请求参数返回指定的强制转换对象
+     *
      * @param key
      * @param clazz
      * @param <T>
@@ -66,6 +67,7 @@ public class BaseService<M extends BaseMapper<T>, T extends BaseEntity> extends 
 
     /**
      * 获得请求参数返回字符串
+     *
      * @param key
      * @return
      */

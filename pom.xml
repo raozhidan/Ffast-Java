@@ -13,6 +13,7 @@
         <module>feiduyang-core</module>
         <module>feiduyang-admin</module>
         <module>feiduyang-pay</module>
+        <module>feiduyang-common</module>
         <module>feiduyang-generator</module>
     </modules>
 

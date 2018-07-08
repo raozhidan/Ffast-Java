@@ -25,16 +25,16 @@ spring:
     default-property-inclusion: non_null
   redis:
     enabled: true
-#    host: 140.143.143.154
-#    port: 6379
+    host: 140.143.143.154
+    port: 6379
     ##password: 123465
     #过期时间（秒）
     expirationSecond: 1800
     #序列号方式 默认0   0:"FastJSON",1:"JackJson",2:"Msgpack"
     serializerType: 2
 #    password: 12345678
-    cluster:
-      nodes: 10.40.10.205:7000,10.40.10.206:7000,10.40.10.207:7000
+#    cluster:
+#      nodes: 10.40.10.205:7000,10.40.10.206:7000,10.40.10.207:7000
 
 mybatis-plus:
   global-config:

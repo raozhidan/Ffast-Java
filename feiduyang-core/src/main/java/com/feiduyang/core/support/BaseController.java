@@ -5,12 +5,12 @@
 package com.feiduyang.core.support;
 
 
-
 import com.feiduyang.core.auth.OperatorBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,18 +30,17 @@ public abstract class BaseController {
         return ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
     }
 
-    protected void setAttribute(String key, Object data){
-        getHttpSession().setAttribute(key,data);
+    protected void setAttribute(String key, Object data) {
+        getHttpSession().setAttribute(key, data);
     }
 
-    protected HttpSession getHttpSession(){
+    protected HttpSession getHttpSession() {
         return getRequest().getSession();
     }
 
-    protected Object getAttribute(String var1){
+    protected Object getAttribute(String var1) {
         return getHttpSession().getAttribute(var1);
     }
-
 
 
     /**
@@ -76,6 +75,7 @@ public abstract class BaseController {
 
     /**
      * 获得请求参数返回指定的强制转换对象
+     *
      * @param key
      * @param clazz
      * @param <T>
@@ -91,6 +91,7 @@ public abstract class BaseController {
 
     /**
      * 获得请求参数返回字符串
+     *
      * @param key
      * @return
      */
@@ -131,14 +132,16 @@ public abstract class BaseController {
 
     /**
      * 获取后台管理登录信息
+     *
      * @return
      */
-    protected  <T> T getLoginUser(Class<T> clazz) {
+    protected <T> T getLoginUser(Class<T> clazz) {
         return (T) (getAttribute("loginUser"));
     }
 
     /**
      * 获得日志对象，供子类重写
+     *
      * @return
      */
     protected abstract Logger getLogger();

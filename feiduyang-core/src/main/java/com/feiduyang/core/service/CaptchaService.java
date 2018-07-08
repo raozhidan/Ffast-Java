@@ -1,10 +1,10 @@
 package com.feiduyang.core.service;
 
 
+import com.feiduyang.common.utils.CaptchaUtils;
+import com.feiduyang.common.utils.HttpServletUtils;
+import com.feiduyang.common.utils.Md5Utils;
 import com.feiduyang.core.redis.RedisCacheUtils;
-import com.feiduyang.core.utils.CaptchaUtils;
-import com.feiduyang.core.utils.HttpServletUtils;
-import com.feiduyang.core.utils.Md5Utils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +37,7 @@ public class CaptchaService {
 
 
     public void buildCaptcha(HttpServletResponse response) {
-        CaptchaUtils.Captcha captcha = CaptchaUtils.createCaptcha(120, 30);
+        CaptchaUtils.Captcha captcha = com.feiduyang.common.utils.CaptchaUtils.createCaptcha(120, 30);
         String captchaId = Md5Utils.hash(Md5Utils.getUUID());
         response.setContentType("image/jpeg");
         response.setHeader("Pragma", "no-cache");
@@ -47,7 +47,7 @@ public class CaptchaService {
         cookie.setMaxAge(1800);
         response.addCookie(cookie);
 
-        redisCacheUtils.setCacheObject(CAPTCHA_KEY + captchaId, captcha.getCode(),300);
+        redisCacheUtils.setCacheObject(CAPTCHA_KEY + captchaId, captcha.getCode(), 300);
         try {
             ServletOutputStream outputStream = response.getOutputStream();
             ImageIO.write(captcha.getImage(), "jpg", outputStream);

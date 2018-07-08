@@ -21,7 +21,7 @@ public class CrossFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpServletRequest reqs = (HttpServletRequest) servletRequest;
-        response.setHeader("Access-Control-Allow-Origin",reqs.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Origin", reqs.getHeader("Origin"));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "*");
         response.setHeader("Access-Control-Max-Age", "3600");

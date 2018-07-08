@@ -1,8 +1,6 @@
 package com.feiduyang.core.redis;
 
 
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.msgpack.jackson.dataformat.MessagePackFactory;
@@ -10,11 +8,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.*;
+import org.springframework.data.redis.core.RedisOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.Resource;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -65,8 +69,8 @@ public class RedisCacheUtils {
     /**
      * 缓存任意对象
      *
-     * @param key 缓存的键值
-     * @param value 缓存的值
+     * @param key     缓存的键值
+     * @param value   缓存的值
      * @param seconds 秒
      * @return
      */
@@ -80,7 +84,7 @@ public class RedisCacheUtils {
      * @param key
      * @param value
      * @param redisSerializerType 序列号类型
-     * @param seconds 秒
+     * @param seconds             秒
      * @return
      */
     public boolean setCacheObject(String key, Object value, RedisSerializerType redisSerializerType, long seconds) {
@@ -110,6 +114,7 @@ public class RedisCacheUtils {
 
     /**
      * 根据pattern匹配清除缓存
+     *
      * @param pattern
      */
     public void clear(String pattern) {
@@ -215,7 +220,6 @@ public class RedisCacheUtils {
             return null;
         }
     }
-
 
 
     private <T> RedisTemplate getRedisSerializer(Class<T> clazz, int serializerTypeId) {

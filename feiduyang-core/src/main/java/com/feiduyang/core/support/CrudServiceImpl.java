@@ -4,11 +4,11 @@ package com.feiduyang.core.support;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.feiduyang.core.annotations.Log;
+import com.feiduyang.common.annotations.Log;
+import com.feiduyang.common.utils.FStringUtil;
+import com.feiduyang.common.vo.ResponseInfo;
+import com.feiduyang.common.vo.ServiceRowsResult;
 import com.feiduyang.core.redis.RedisCacheUtils;
-import com.feiduyang.core.utils.FStringUtil;
-import com.feiduyang.core.vo.ResponseInfo;
-import com.feiduyang.core.vo.ServiceRowsResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -179,7 +179,7 @@ public class CrudServiceImpl<M extends BaseMapper<T>, T extends BaseEntity, ID e
 
     @Override
     public ServiceRowsResult findListByPage(T m, Page<T> page, String[] properties) {
-        ServiceRowsResult result = new ServiceRowsResult(false);
+        ServiceRowsResult result = new ServiceRowsResult<>(false);
         EntityWrapper ew = new EntityWrapper<T>(m);
         if (properties != null) {
             ew.setSqlSelect(properties);
