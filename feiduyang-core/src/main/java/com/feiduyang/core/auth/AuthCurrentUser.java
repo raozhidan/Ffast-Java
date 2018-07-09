@@ -9,7 +9,15 @@ package com.feiduyang.core.auth;
 public class AuthCurrentUser {
 
     private final static ThreadLocal<OperatorBase> userLocal = new ThreadLocal<>();
+    private final static ThreadLocal<String> userCode = new ThreadLocal<>();
 
+    public static String getUserCode() {
+        return userCode.get();
+    }
+
+    public static void setUserCode(String code) {
+        userCode.set(code);
+    }
     public static OperatorBase getUser() {
         return userLocal.get();
     }

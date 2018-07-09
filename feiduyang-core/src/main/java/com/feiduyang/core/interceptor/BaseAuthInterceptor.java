@@ -94,6 +94,8 @@ public abstract class BaseAuthInterceptor<T extends OperatorBase> extends Handle
             Class<T> tClass = ReflectionKit.getSuperClassGenricType(this.getClass(), 0);
             T loginUser = operatorUtils.getTokenUser(request, tClass);
             AuthCurrentUser.setUser(loginUser);
+            String code = request.getParameter("code");
+            AuthCurrentUser.setUserCode(StringUtils.isEmpty(code) ? null : code);
             request.setAttribute("loginUser", loginUser);
             if (loginUser == null) {
                 //未登录

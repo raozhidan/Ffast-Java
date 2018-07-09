@@ -9,7 +9,8 @@ package com.feiduyang.common.constance;
 public enum CodeEnum {
     SUCCESS("1", "成功！"),
     HAS_PAY("11", "订单已支付"),
-    ERROR("-1", "服务器错误");
+    ERROR("-1", "服务器错误"),
+    WECHAT_CODE_NULL("-2", "微信code码为空！");
 
     public String code;
     public String message;
@@ -32,5 +33,7 @@ public enum CodeEnum {
     }
 
     CodeEnum(String code, String message) {
+        this.code = code;
+        this.message = message;
     }
 }

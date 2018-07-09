@@ -53,8 +53,8 @@ public class ResponseInfo<T> implements Serializable {
 
     public static ResponseInfo createCodeEnum(CodeEnum codeEnum) {
         ResponseInfo responseInfo = new ResponseInfo();
-        responseInfo.setCode(codeEnum.code);
-        responseInfo.setMessage(codeEnum.message);
+        responseInfo.setCode(codeEnum.getCode());
+        responseInfo.setMessage(codeEnum.getMessage());
         return responseInfo;
     }
 
