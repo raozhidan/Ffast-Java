@@ -1,7 +1,7 @@
 package com.feiduyang.core.handler;
 
-import com.feiduyang.core.utils.ResultCode;
-import com.feiduyang.core.vo.ResponseInfo;
+import com.feiduyang.common.utils.ResultCode;
+import com.feiduyang.common.vo.ResponseInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;

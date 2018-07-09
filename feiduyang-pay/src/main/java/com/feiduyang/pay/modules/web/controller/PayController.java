@@ -1,6 +1,6 @@
 package com.feiduyang.pay.modules.web.controller;
 
-import com.feiduyang.common.utils.DateUtil;
+import com.feiduyang.pay.common.utils.DateUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.feiduyang.core.utils.DateUtil;
+import com.feiduyang.common.utils.DateUtil;
 
 import java.util.*;
 

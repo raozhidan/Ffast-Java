@@ -1,4 +1,4 @@
-import com.feiduyang.core.vo.ResponseInfo;
+import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.web.WebApplication;
 import com.feiduyang.web.service.management.IVehicleCheckInOutFlowService;
 import org.junit.Test;

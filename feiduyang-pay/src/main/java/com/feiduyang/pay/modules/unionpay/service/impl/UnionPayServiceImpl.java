@@ -1,14 +1,14 @@
 package com.feiduyang.pay.modules.unionpay.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.feiduyang.common.constants.Constants;
-import com.feiduyang.common.constants.PayWay;
-import com.feiduyang.common.model.Product;
-import com.feiduyang.common.utils.CommonUtil;
-import com.feiduyang.modules.unionpay.service.IUnionPayService;
-import com.feiduyang.modules.unionpay.util.AcpService;
-import com.feiduyang.modules.unionpay.util.SDKConfig;
-import com.feiduyang.modules.unionpay.util.UnionConfig;
+import com.feiduyang.pay.common.constants.Constants;
+import com.feiduyang.pay.common.constants.PayWay;
+import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.pay.common.utils.CommonUtil;
+import com.feiduyang.pay.modules.unionpay.service.IUnionPayService;
+import com.feiduyang.pay.modules.unionpay.util.AcpService;
+import com.feiduyang.pay.modules.unionpay.util.SDKConfig;
+import com.feiduyang.pay.modules.unionpay.util.UnionConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

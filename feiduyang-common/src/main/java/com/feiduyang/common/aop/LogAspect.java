@@ -35,7 +35,7 @@ public class LogAspect {
      * @return 方法执行结果
      * @throws Throwable 调用出错
      */
-    @Around(value = "@annotation(com.feiduyang.core.annotations.Log)")
+    @Around(value = "@annotation(com.feiduyang.common.annotations.Log)")
     public Object saveLog(ProceedingJoinPoint joinPoint) throws Throwable {
         /**
          * 解析Log注解

@@ -1,7 +1,7 @@
 package com.feiduyang.core.auth;
 
+import com.feiduyang.common.utils.Md5Utils;
 import com.feiduyang.core.redis.RedisCacheUtils;
-import com.feiduyang.core.utils.Md5Utils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

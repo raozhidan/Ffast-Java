@@ -1,11 +1,11 @@
 package com.feiduyang.pay.modules.unionpay.controller;
 
-import com.feiduyang.common.constants.PayWay;
-import com.feiduyang.common.model.Product;
-import com.feiduyang.modules.alipay.controller.AliPayController;
-import com.feiduyang.modules.unionpay.service.IUnionPayService;
-import com.feiduyang.modules.unionpay.util.AcpService;
-import com.feiduyang.modules.unionpay.util.SDKConstants;
+import com.feiduyang.pay.common.constants.PayWay;
+import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.pay.modules.alipay.controller.AliPayController;
+import com.feiduyang.pay.modules.unionpay.service.IUnionPayService;
+import com.feiduyang.pay.modules.unionpay.util.AcpService;
+import com.feiduyang.pay.modules.unionpay.util.SDKConstants;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
 package com.feiduyang.pay.modules.weixinpay.util;
 
-import com.feiduyang.common.constants.Constants;
+import com.feiduyang.pay.common.constants.Constants;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;

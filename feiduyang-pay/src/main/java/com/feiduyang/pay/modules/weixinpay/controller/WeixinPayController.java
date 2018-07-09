@@ -1,12 +1,12 @@
 package com.feiduyang.pay.modules.weixinpay.controller;
 
-import com.feiduyang.common.constants.Constants;
-import com.feiduyang.common.model.Product;
-import com.feiduyang.modules.weixinpay.service.IWeixinPayService;
-import com.feiduyang.modules.weixinpay.util.ConfigUtil;
-import com.feiduyang.modules.weixinpay.util.HttpUtil;
-import com.feiduyang.modules.weixinpay.util.PayCommonUtil;
-import com.feiduyang.modules.weixinpay.util.XMLUtil;
+import com.feiduyang.pay.common.constants.Constants;
+import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.pay.modules.weixinpay.service.IWeixinPayService;
+import com.feiduyang.pay.modules.weixinpay.util.ConfigUtil;
+import com.feiduyang.pay.modules.weixinpay.util.HttpUtil;
+import com.feiduyang.pay.modules.weixinpay.util.PayCommonUtil;
+import com.feiduyang.pay.modules.weixinpay.util.XMLUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

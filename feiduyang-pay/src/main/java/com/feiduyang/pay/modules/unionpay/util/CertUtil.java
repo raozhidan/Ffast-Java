@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static com.feiduyang.modules.unionpay.util.SDKUtil.isEmpty;
+import static com.feiduyang.pay.modules.unionpay.util.SDKUtil.isEmpty;
 public class CertUtil {
 	private static final Logger logger = LoggerFactory.getLogger(CertUtil.class);
 	/** 证书容器. */

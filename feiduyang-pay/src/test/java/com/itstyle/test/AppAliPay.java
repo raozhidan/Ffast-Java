@@ -6,7 +6,7 @@ import com.alipay.api.domain.AlipayTradeAppPayModel;
 import com.alipay.api.request.AlipayTradeAppPayRequest;
 import com.alipay.api.response.AlipayTradeAppPayResponse;
 import com.alipay.demo.trade.config.Configs;
-import com.feiduyang.modules.alipay.util.AliPayConfig;
+import com.feiduyang.pay.modules.alipay.util.AliPayConfig;
 /**
  * 测试APP服务端逻辑
  * 创建者 科帮网

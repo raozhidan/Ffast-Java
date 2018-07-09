@@ -1,14 +1,14 @@
 package com.feiduyang.pay.modules.weixinpay.controller;
 
-import com.feiduyang.common.model.Product;
-import com.feiduyang.common.utils.AddressUtils;
-import com.feiduyang.common.utils.DateUtil;
-import com.feiduyang.modules.weixinpay.util.ConfigUtil;
-import com.feiduyang.modules.weixinpay.util.HttpUtil;
-import com.feiduyang.modules.weixinpay.util.PayCommonUtil;
-import com.feiduyang.modules.weixinpay.util.XMLUtil;
-import com.feiduyang.modules.weixinpay.util.mobile.MobileUtil;
+import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.pay.common.utils.AddressUtils;
+import com.feiduyang.pay.common.utils.DateUtil;
 import com.feiduyang.pay.modules.weixinpay.service.IWeixinPayService;
+import com.feiduyang.pay.modules.weixinpay.util.ConfigUtil;
+import com.feiduyang.pay.modules.weixinpay.util.HttpUtil;
+import com.feiduyang.pay.modules.weixinpay.util.PayCommonUtil;
+import com.feiduyang.pay.modules.weixinpay.util.XMLUtil;
+import com.feiduyang.pay.modules.weixinpay.util.mobile.MobileUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;

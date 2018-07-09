@@ -1,12 +1,11 @@
 package com.feiduyang.pay.modules.weixinpay.controller;
 
-import com.feiduyang.common.model.Product;
-import com.feiduyang.common.utils.AddressUtils;
-import com.feiduyang.common.utils.DateUtil;
+import com.feiduyang.common.constance.CodeEnum;
 import com.feiduyang.common.utils.HttpServletUtils;
 import com.feiduyang.common.vo.ResponseInfo;
-import com.feiduyang.core.constance.CodeEnum;
+import com.feiduyang.pay.common.model.Product;
 import com.feiduyang.pay.common.utils.AddressUtils;
+import com.feiduyang.pay.common.utils.DateUtil;
 import com.feiduyang.pay.modules.weixinpay.service.IWeixinPayService;
 import com.feiduyang.pay.modules.weixinpay.util.ConfigUtil;
 import com.feiduyang.pay.modules.weixinpay.util.HttpUtil;
@@ -172,7 +171,6 @@ public class FeiDuYangWeixinPayController {
      *
      * @param request
      * @param response
-     * @param platForm void
      * @Author 科帮网
      * @Date 2017年7月31日 更新日志
      * 2017年7月31日  科帮网 首次创建

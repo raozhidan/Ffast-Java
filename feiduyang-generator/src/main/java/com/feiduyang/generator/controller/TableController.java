@@ -1,7 +1,7 @@
 package com.feiduyang.generator.controller;
 
 
-import com.feiduyang.core.vo.ServiceRowsResult;
+import com.feiduyang.common.vo.ServiceRowsResult;
 import com.feiduyang.generator.dao.TableDao;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

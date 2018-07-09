@@ -3,8 +3,8 @@ package com.feiduyang.core.support;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.toolkit.ReflectionKit;
+import com.feiduyang.common.utils.HttpServletUtils;
 import com.feiduyang.core.auth.OperatorBase;
-import com.feiduyang.core.utils.HttpServletUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

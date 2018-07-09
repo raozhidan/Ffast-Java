@@ -1,6 +1,6 @@
 package com.feiduyang.pay.modules.weixinpay.service;
 
-import com.feiduyang.common.model.Product;
+import com.feiduyang.pay.common.model.Product;
 
 public interface IWeixinPayService {
     /**

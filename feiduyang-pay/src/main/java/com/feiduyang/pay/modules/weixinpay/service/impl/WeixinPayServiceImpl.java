@@ -2,11 +2,11 @@ package com.feiduyang.pay.modules.weixinpay.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.alipay.demo.trade.utils.ZxingUtils;
-import com.feiduyang.common.constants.Constants;
-import com.feiduyang.common.model.Product;
-import com.feiduyang.common.utils.CommonUtil;
-import com.feiduyang.modules.weixinpay.service.IWeixinPayService;
-import com.feiduyang.modules.weixinpay.util.*;
+import com.feiduyang.pay.common.constants.Constants;
+import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.pay.common.utils.CommonUtil;
+import com.feiduyang.pay.modules.weixinpay.service.IWeixinPayService;
+import com.feiduyang.pay.modules.weixinpay.util.*;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

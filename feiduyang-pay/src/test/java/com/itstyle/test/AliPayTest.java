@@ -1,10 +1,10 @@
 package com.feiduyang.test;
 
 import com.alipay.demo.trade.config.Configs;
-import com.feiduyang.common.constants.PayType;
-import com.feiduyang.common.constants.PayWay;
-import com.feiduyang.common.model.Product;
-import com.feiduyang.modules.alipay.service.IAliPayService;
+import com.feiduyang.pay.common.constants.PayType;
+import com.feiduyang.pay.common.constants.PayWay;
+import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.pay.modules.alipay.service.IAliPayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

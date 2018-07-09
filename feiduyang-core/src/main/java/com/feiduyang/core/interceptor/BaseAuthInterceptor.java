@@ -2,13 +2,13 @@ package com.feiduyang.core.interceptor;
 
 
 import com.baomidou.mybatisplus.toolkit.ReflectionKit;
-import com.feiduyang.core.annotations.Logined;
-import com.feiduyang.core.annotations.Permission;
+import com.feiduyang.common.annotations.Logined;
+import com.feiduyang.common.annotations.Permission;
+import com.feiduyang.common.utils.ResultCode;
+import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.core.auth.AuthCurrentUser;
 import com.feiduyang.core.auth.OperatorBase;
 import com.feiduyang.core.auth.OperatorUtils;
-import com.feiduyang.core.utils.ResultCode;
-import com.feiduyang.core.vo.ResponseInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

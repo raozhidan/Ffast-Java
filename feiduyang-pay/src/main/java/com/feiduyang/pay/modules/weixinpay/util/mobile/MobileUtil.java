@@ -1,6 +1,6 @@
 package com.feiduyang.pay.modules.weixinpay.util.mobile;
 
-import com.feiduyang.modules.weixinpay.util.ConfigUtil;
+import com.feiduyang.pay.modules.weixinpay.util.ConfigUtil;
 import com.google.gson.Gson;
 import org.dom4j.Document;
 import org.dom4j.Element;

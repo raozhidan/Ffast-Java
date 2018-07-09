@@ -1,7 +1,7 @@
 package com.feiduyang.core.support;
 
 
-import com.feiduyang.core.vo.ResponseInfo;
+import com.feiduyang.common.vo.ResponseInfo;
 
 public interface IAuthService {
     /**

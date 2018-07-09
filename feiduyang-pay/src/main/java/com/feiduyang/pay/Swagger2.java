@@ -18,7 +18,7 @@ public class Swagger2 {
 		        .groupName("支付后台API接口文档")  
 		        .apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.modules.web"))
+				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.pay.modules.web"))
 				.paths(PathSelectors.any()).build();
 	}
 	@Bean
@@ -27,7 +27,7 @@ public class Swagger2 {
 		        .groupName("支付宝API接口文档")  
 		        .apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.modules.alipay"))
+				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.pay.modules.alipay"))
 				.paths(PathSelectors.any()).build();
 	}
 	@Bean
@@ -36,7 +36,7 @@ public class Swagger2 {
 		        .groupName("微信API接口文档")  
 		        .apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.modules.weixinpay"))
+				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.pay.modules.weixinpay"))
 				.paths(PathSelectors.any()).build();
 	}
 	@Bean
@@ -45,7 +45,7 @@ public class Swagger2 {
 		        .groupName("银联API接口文档")  
 		        .apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.modules.unionpay"))
+				.apis(RequestHandlerSelectors.basePackage("com.feiduyang.pay.modules.unionpay"))
 				.paths(PathSelectors.any()).build();
 	}
 	private ApiInfo apiInfo() {
