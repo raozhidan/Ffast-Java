@@ -3,11 +3,15 @@
 /feiduyang-core/target/
 /feiduyang-admin/target/
 /feiduyang-generator/target/
+/feiduyang-pay/target/
+/feiduyang-common/target/
 .mvn
 /*.iml
 *.iml
 /feiduyang-generator/*.iml
 /feiduyang-admin/*.iml
+/feiduyang-common/*.iml
+/feiduyang-pay/*.iml
 /feiduyang-parent/*.iml
 /feiduyang.iml
 /feiduyang-admin/feiduyang-admin.iml
