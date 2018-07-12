@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.sys.ResMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.Res">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.Res">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="identity" property="identity"/>

@@ -1,9 +1,10 @@
 package com.feiduyang.web.service.impl.management;
 
-import com.feiduyang.core.support.CrudServiceImpl;
+
+import com.feiduyang.api.management.IProductInfoService;
+import com.feiduyang.common.entity.management.ProductInfo;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.web.dao.management.ProductInfoMapper;
-import com.feiduyang.web.entity.management.ProductInfo;
-import com.feiduyang.web.service.management.IProductInfoService;
 import org.springframework.stereotype.Service;
 
 /**

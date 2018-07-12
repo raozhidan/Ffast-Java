@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.sys.LogMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.Log">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.Log">
         <result column="id" property="id"/> <!-- 主键 -->
         <result column="content" property="content"/> <!-- 日志内容 -->
         <result column="operation" property="operation"/> <!-- 用户操作 -->
@@ -17,7 +17,7 @@
         a.content, a.operation, a.create_time AS createTime, a.creator_id AS creatorId
     </sql>
 
-    <select id="listByPage" resultType="com.feiduyang.web.entity.sys.Log">
+    <select id="listByPage" resultType="com.feiduyang.common.entity.sys.Log">
         select b.name AS creatorName,
         <include refid="Base_Column_List"/>
         from t_sys_log a left join t_sys_user b on b.id=a.creator_id

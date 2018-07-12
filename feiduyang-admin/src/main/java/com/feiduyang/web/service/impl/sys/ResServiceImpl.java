@@ -1,14 +1,14 @@
 package com.feiduyang.web.service.impl.sys;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IResService;
+import com.feiduyang.common.entity.sys.Res;
+import com.feiduyang.common.entity.sys.RoleRes;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.common.vo.ServiceRowsResult;
-import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.web.dao.sys.ResMapper;
 import com.feiduyang.web.dao.sys.RoleResMapper;
-import com.feiduyang.web.entity.sys.Res;
-import com.feiduyang.web.entity.sys.RoleRes;
-import com.feiduyang.web.service.sys.IResService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;

@@ -1,10 +1,10 @@
 package com.feiduyang.web.controller.sys;
 
 import com.feiduyang.common.annotations.Logined;
+import com.feiduyang.common.support.BaseController;
+import com.feiduyang.common.support.IAuthService;
 import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.core.service.CaptchaService;
-import com.feiduyang.core.support.BaseController;
-import com.feiduyang.core.support.IAuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

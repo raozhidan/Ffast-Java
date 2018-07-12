@@ -1,8 +1,9 @@
 package com.feiduyang.web.dao.sys;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.sys.Res;
-import com.feiduyang.web.entity.sys.RoleRes;
+import com.feiduyang.common.entity.sys.Res;
+import com.feiduyang.common.entity.sys.RoleRes;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

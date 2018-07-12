@@ -3,12 +3,12 @@
 <mapper namespace="com.feiduyang.web.dao.sys.RoleResMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.RoleRes">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.RoleRes">
         <id column="id" property="id"/>
         <result column="role_id" property="roleId"/>
         <result column="res_id" property="resId"/>
     </resultMap>
-    <select id="listByRoleId" resultType="com.feiduyang.web.entity.sys.Res">
+    <select id="listByRoleId" resultType="com.feiduyang.common.entity.sys.Res">
         select a.id,a.name,a.url,a.parent_id,a.icon,a.res_type,a.identity
         from t_sys_res a
         LEFT JOIN t_sys_role_res b ON b.res_id=a.id

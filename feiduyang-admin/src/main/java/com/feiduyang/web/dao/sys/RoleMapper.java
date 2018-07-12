@@ -1,7 +1,8 @@
 package com.feiduyang.web.dao.sys;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.sys.Role;
+import com.feiduyang.common.entity.sys.Role;
 
 /**
  * @description: 系统_角色Mapper接口

@@ -1,7 +1,7 @@
 package com.feiduyang.web.dao.management;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.NonMotorizedVehicleInfo;
+import com.feiduyang.common.entity.management.NonMotorizedVehicleInfo;
 
 /**
  * @description: 非机动车信息Mapper接口

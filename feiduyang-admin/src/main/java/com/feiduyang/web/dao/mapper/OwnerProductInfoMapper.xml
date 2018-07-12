@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.management.OwnerProductInfoMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.management.OwnerProductInfo">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.management.OwnerProductInfo">
         <result column="id" property="id"/> <!--  -->
         <result column="creator_id" property="creatorId"/> <!--  -->
         <result column="last_modifier_id" property="lastModifierId"/> <!--  -->

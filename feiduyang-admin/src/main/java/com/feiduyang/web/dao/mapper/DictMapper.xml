@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.sys.DictMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.Dict">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.Dict">
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="note" property="note"/>
@@ -16,7 +16,7 @@
         <result column="is_sys" property="isSys"/>
         <result column="weight" property="weight"/>
     </resultMap>
-    <select id="listDict" resultType="com.feiduyang.web.entity.sys.Dict">
+    <select id="listDict" resultType="com.feiduyang.common.entity.sys.Dict">
         select a.id,a.name
         FROM t_sys_dict a
         LEFT JOIN t_sys_dict_type b ON a.dict_type_id=b.id

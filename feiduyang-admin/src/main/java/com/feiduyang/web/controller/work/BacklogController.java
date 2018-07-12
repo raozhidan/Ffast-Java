@@ -1,11 +1,11 @@
 package com.feiduyang.web.controller.work;
 
 
+import com.feiduyang.api.work.IBacklogService;
 import com.feiduyang.common.annotations.CrudConfig;
 import com.feiduyang.common.annotations.Logined;
-import com.feiduyang.core.support.BaseCrudController;
-import com.feiduyang.web.entity.work.Backlog;
-import com.feiduyang.web.service.work.IBacklogService;
+import com.feiduyang.common.entity.work.Backlog;
+import com.feiduyang.common.support.BaseCrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

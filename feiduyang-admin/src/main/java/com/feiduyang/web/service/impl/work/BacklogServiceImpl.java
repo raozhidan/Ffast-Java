@@ -2,12 +2,12 @@ package com.feiduyang.web.service.impl.work;
 
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.work.IBacklogService;
+import com.feiduyang.common.entity.work.Backlog;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.common.vo.ServiceRowsResult;
-import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.web.dao.work.BacklogMapper;
-import com.feiduyang.web.entity.work.Backlog;
-import com.feiduyang.web.service.work.IBacklogService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 

@@ -2,16 +2,16 @@ package com.feiduyang.web.controller.sys;
 
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IUserRoleService;
+import com.feiduyang.api.sys.IUserService;
 import com.feiduyang.common.annotations.Logined;
 import com.feiduyang.common.annotations.Permission;
+import com.feiduyang.common.entity.sys.User;
+import com.feiduyang.common.entity.sys.UserRole;
+import com.feiduyang.common.support.BaseCrudController;
 import com.feiduyang.common.utils.FStringUtil;
 import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.core.auth.OperatorUtils;
-import com.feiduyang.core.support.BaseCrudController;
-import com.feiduyang.web.entity.sys.User;
-import com.feiduyang.web.entity.sys.UserRole;
-import com.feiduyang.web.service.sys.IUserRoleService;
-import com.feiduyang.web.service.sys.IUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

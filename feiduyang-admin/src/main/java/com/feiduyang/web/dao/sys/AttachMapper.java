@@ -2,7 +2,7 @@ package com.feiduyang.web.dao.sys;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
-import com.feiduyang.web.entity.sys.Attach;
+import com.feiduyang.common.entity.sys.Attach;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

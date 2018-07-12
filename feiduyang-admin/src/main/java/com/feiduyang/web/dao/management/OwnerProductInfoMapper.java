@@ -1,7 +1,7 @@
 package com.feiduyang.web.dao.management;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.OwnerProductInfo;
+import com.feiduyang.common.entity.management.OwnerProductInfo;
 
 /**
  * @description: 车主购买的套餐产品信息Mapper接口

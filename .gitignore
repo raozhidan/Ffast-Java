@@ -8,6 +8,8 @@
 .mvn
 /*.iml
 *.iml
+/*.log
+log
 /feiduyang-generator/*.iml
 /feiduyang-admin/*.iml
 /feiduyang-common/*.iml

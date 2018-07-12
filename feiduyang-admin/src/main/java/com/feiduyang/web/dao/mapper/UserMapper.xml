@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.sys.UserMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.User">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.User">
         <id column="id" property="id"/>
         <result column="username" property="username"/>
         <result column="name" property="name"/>
@@ -23,7 +23,7 @@
         <result column="last_modifier_id" property="lastModifierId"/>
     </resultMap>
 
-    <select id="listByPage" resultType="com.feiduyang.web.entity.sys.User">
+    <select id="listByPage" resultType="com.feiduyang.common.entity.sys.User">
         select a.id,a.username,a.name,a.status,a.email,a.tel,a.is_lock,a.lock_time,a.login_count,a.login_failure_count,
         a.login_ip,a.login_time,a.creator_id,a.create_time,a.last_modify_time,a.last_modifier_id,
         (select group_concat(role_id) from t_sys_user_role where user_id=a.id) as roleId

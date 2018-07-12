@@ -1,12 +1,12 @@
 package com.feiduyang.web.service.impl.sys;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IDictService;
+import com.feiduyang.common.entity.sys.Dict;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.common.vo.ServiceRowsResult;
-import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.web.dao.sys.DictMapper;
-import com.feiduyang.web.entity.sys.Dict;
-import com.feiduyang.web.service.sys.IDictService;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

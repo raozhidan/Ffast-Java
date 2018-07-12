@@ -1,11 +1,11 @@
 package com.feiduyang.web.service.impl.sys;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IDictTypeService;
+import com.feiduyang.common.entity.sys.DictType;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.common.vo.ResponseInfo;
-import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.web.dao.sys.DictTypeMapper;
-import com.feiduyang.web.entity.sys.DictType;
-import com.feiduyang.web.service.sys.IDictTypeService;
 import org.springframework.stereotype.Service;
 
 /**

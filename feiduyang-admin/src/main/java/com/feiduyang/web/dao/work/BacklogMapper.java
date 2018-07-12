@@ -2,7 +2,7 @@ package com.feiduyang.web.dao.work;
 
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.work.Backlog;
+import com.feiduyang.common.entity.work.Backlog;
 
 /**
  * @description: 待办事项Mapper接口

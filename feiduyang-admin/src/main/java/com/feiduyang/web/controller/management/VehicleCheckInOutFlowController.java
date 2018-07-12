@@ -1,11 +1,11 @@
 package com.feiduyang.web.controller.management;
 
+import com.feiduyang.api.management.IVehicleCheckInOutFlowService;
 import com.feiduyang.common.annotations.Logined;
 import com.feiduyang.common.annotations.Permission;
+import com.feiduyang.common.entity.management.VehicleCheckInOutFlow;
+import com.feiduyang.common.support.BaseCrudController;
 import com.feiduyang.common.vo.ResponseInfo;
-import com.feiduyang.core.support.BaseCrudController;
-import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
-import com.feiduyang.web.service.management.IVehicleCheckInOutFlowService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

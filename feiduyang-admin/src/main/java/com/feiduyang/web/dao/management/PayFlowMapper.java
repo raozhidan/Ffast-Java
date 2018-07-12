@@ -1,7 +1,8 @@
 package com.feiduyang.web.dao.management;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.PayFlow;
+import com.feiduyang.common.entity.management.PayFlow;
 
 /**
  * @description: 支付流水信息Mapper接口

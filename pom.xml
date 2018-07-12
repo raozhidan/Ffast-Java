@@ -15,6 +15,7 @@
         <module>feiduyang-pay</module>
         <module>feiduyang-common</module>
         <module>feiduyang-generator</module>
+        <module>feiduyang-api</module>
     </modules>
 
     <parent>

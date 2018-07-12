@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.sys.AttachMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.Attach">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.Attach">
         <result column="id" property="id"/> <!-- id -->
         <result column="name" property="name"/> <!-- 附件名 -->
         <result column="note" property="note"/> <!-- 备注 -->
@@ -56,7 +56,7 @@
         ORDER BY id ASC
     </sql>
 
-    <select id="listByPage" resultType="com.feiduyang.web.entity.sys.Attach">
+    <select id="listByPage" resultType="com.feiduyang.common.entity.sys.Attach">
         select b.name AS creatorName,
         <include refid="Base_Column_List"/>
         from t_sys_attach a left join t_sys_user b on b.id=a.creator_id

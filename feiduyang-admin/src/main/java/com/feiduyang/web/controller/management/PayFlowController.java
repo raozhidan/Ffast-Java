@@ -1,10 +1,10 @@
 package com.feiduyang.web.controller.management;
 
+import com.feiduyang.api.management.IPayFlowService;
 import com.feiduyang.common.annotations.Logined;
 import com.feiduyang.common.annotations.Permission;
-import com.feiduyang.core.support.BaseCrudController;
-import com.feiduyang.web.entity.management.PayFlow;
-import com.feiduyang.web.service.management.IPayFlowService;
+import com.feiduyang.common.entity.management.PayFlow;
+import com.feiduyang.common.support.BaseCrudController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

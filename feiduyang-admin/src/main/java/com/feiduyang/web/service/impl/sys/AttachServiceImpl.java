@@ -1,13 +1,13 @@
 package com.feiduyang.web.service.impl.sys;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IAttachService;
+import com.feiduyang.common.entity.sys.Attach;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.common.utils.FileUtil;
 import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.common.vo.ServiceRowsResult;
-import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.web.dao.sys.AttachMapper;
-import com.feiduyang.web.entity.sys.Attach;
-import com.feiduyang.web.service.sys.IAttachService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

@@ -1,9 +1,9 @@
 package com.feiduyang.web.service.impl.management;
 
-import com.feiduyang.core.support.CrudServiceImpl;
+import com.feiduyang.api.management.IPayFlowService;
+import com.feiduyang.common.entity.management.PayFlow;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.web.dao.management.PayFlowMapper;
-import com.feiduyang.web.entity.management.PayFlow;
-import com.feiduyang.web.service.management.IPayFlowService;
 import org.springframework.stereotype.Service;
 
 /**

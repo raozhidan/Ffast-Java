@@ -3,7 +3,7 @@ package com.feiduyang.web.config;
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import com.alibaba.fastjson.support.spring.GenericFastJsonRedisSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.feiduyang.core.redis.GenericMsgpackRedisSerializer;
+import com.feiduyang.common.redis.GenericMsgpackRedisSerializer;
 import org.msgpack.jackson.dataformat.MessagePackFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CachingConfigurerSupport;

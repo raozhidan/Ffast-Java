@@ -2,15 +2,15 @@ package com.feiduyang.web.service.impl.sys;
 
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IRoleResService;
+import com.feiduyang.common.entity.sys.Res;
+import com.feiduyang.common.entity.sys.RoleRes;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.common.utils.FStringUtil;
 import com.feiduyang.common.vo.ResponseInfo;
-import com.feiduyang.core.support.CrudServiceImpl;
+import com.feiduyang.common.vo.RoleMenuPerms;
 import com.feiduyang.core.vo.Menu;
 import com.feiduyang.web.dao.sys.RoleResMapper;
-import com.feiduyang.web.entity.sys.Res;
-import com.feiduyang.web.entity.sys.RoleRes;
-import com.feiduyang.web.service.sys.IRoleResService;
-import com.feiduyang.web.vo.RoleMenuPerms;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

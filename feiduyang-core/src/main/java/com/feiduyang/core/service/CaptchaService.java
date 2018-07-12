@@ -1,10 +1,10 @@
 package com.feiduyang.core.service;
 
 
+import com.feiduyang.common.redis.RedisCacheUtils;
 import com.feiduyang.common.utils.CaptchaUtils;
 import com.feiduyang.common.utils.HttpServletUtils;
 import com.feiduyang.common.utils.Md5Utils;
-import com.feiduyang.core.redis.RedisCacheUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

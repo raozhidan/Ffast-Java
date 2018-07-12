@@ -2,19 +2,19 @@ package com.feiduyang.web.service.impl.sys;
 
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IRoleResService;
+import com.feiduyang.api.sys.IRoleService;
+import com.feiduyang.api.sys.IUserRoleService;
+import com.feiduyang.api.sys.IUserService;
+import com.feiduyang.common.entity.sys.Role;
+import com.feiduyang.common.entity.sys.User;
+import com.feiduyang.common.support.IAuthService;
 import com.feiduyang.common.utils.CollectionUtils;
+import com.feiduyang.common.vo.Operator;
 import com.feiduyang.common.vo.ResponseInfo;
+import com.feiduyang.common.vo.RoleMenuPerms;
 import com.feiduyang.core.auth.OperatorUtils;
 import com.feiduyang.core.service.CaptchaService;
-import com.feiduyang.core.support.IAuthService;
-import com.feiduyang.web.entity.sys.Role;
-import com.feiduyang.web.entity.sys.User;
-import com.feiduyang.web.service.sys.IRoleResService;
-import com.feiduyang.web.service.sys.IRoleService;
-import com.feiduyang.web.service.sys.IUserRoleService;
-import com.feiduyang.web.service.sys.IUserService;
-import com.feiduyang.web.vo.Operator;
-import com.feiduyang.web.vo.RoleMenuPerms;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

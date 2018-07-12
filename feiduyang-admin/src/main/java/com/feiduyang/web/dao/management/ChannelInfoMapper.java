@@ -1,7 +1,7 @@
 package com.feiduyang.web.dao.management;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.ChannelInfo;
+import com.feiduyang.common.entity.management.ChannelInfo;
 
 /**
  * @description: 渠道信息Mapper接口
