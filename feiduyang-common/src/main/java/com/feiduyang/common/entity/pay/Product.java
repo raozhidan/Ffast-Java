@@ -1,4 +1,4 @@
-package com.feiduyang.pay.common.model;
+package com.feiduyang.common.entity.pay;
 import java.io.Serializable;
 /**
  * 产品订单信息

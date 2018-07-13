@@ -3,7 +3,7 @@ package com.feiduyang.pay.modules.unionpay.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.feiduyang.pay.common.constants.Constants;
 import com.feiduyang.pay.common.constants.PayWay;
-import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.common.entity.pay.Product;
 import com.feiduyang.pay.common.utils.CommonUtil;
 import com.feiduyang.pay.modules.unionpay.service.IUnionPayService;
 import com.feiduyang.pay.modules.unionpay.util.AcpService;

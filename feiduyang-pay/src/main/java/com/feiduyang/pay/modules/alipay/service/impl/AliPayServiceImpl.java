@@ -17,7 +17,7 @@ import com.alipay.demo.trade.model.result.AlipayF2FPrecreateResult;
 import com.alipay.demo.trade.model.result.AlipayF2FRefundResult;
 import com.alipay.demo.trade.utils.ZxingUtils;
 import com.feiduyang.pay.common.constants.Constants;
-import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.common.entity.pay.Product;
 import com.feiduyang.pay.common.utils.CommonUtil;
 import com.feiduyang.pay.modules.alipay.service.IAliPayService;
 import com.feiduyang.pay.modules.alipay.util.AliPayConfig;

@@ -1,12 +1,17 @@
 package com.feiduyang.pay.modules.weixinpay.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.alipay.demo.trade.utils.ZxingUtils;
+import com.feiduyang.api.pay.IWeixinPayService;
+import com.feiduyang.common.constance.CodeEnum;
+import com.feiduyang.common.entity.pay.Product;
+import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.pay.common.constants.Constants;
-import com.feiduyang.pay.common.model.Product;
 import com.feiduyang.pay.common.utils.CommonUtil;
-import com.feiduyang.pay.modules.weixinpay.service.IWeixinPayService;
+import com.feiduyang.pay.common.utils.DateUtil;
 import com.feiduyang.pay.modules.weixinpay.util.*;
+import com.feiduyang.pay.modules.weixinpay.util.mobile.MobileUtil;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +34,7 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 	private String notify_url;
 	@Value("${server.context.url}")
 	private String server_url;
-	
+    public static final String SUCCESS = "SUCCESS";
 	@SuppressWarnings("rawtypes")
 	@Override
 	public String weixinPay2(Product product) {
@@ -293,4 +298,70 @@ public class WeixinPayServiceImpl implements IWeixinPayService {
 		}
 		return mweb_url;
 	}
+
+    @Override
+    public ResponseInfo doPay(String outTradeNo, String totalFee, String code) throws Exception {
+        //获取用户openID(JSAPI支付必须传openid)
+        String openId = MobileUtil.getOpenId(code);
+        // 交易类型H5支付 也可以是小程序支付参数
+        String trade_type = "JSAPI";
+        SortedMap<Object, Object> packageParams = new TreeMap<>();
+        ConfigUtil.commonParams(packageParams);
+        // 商品描述
+        packageParams.put("body", "报告");
+        // 商户订单号
+        packageParams.put("out_trade_no", outTradeNo);
+        // 总金额
+        packageParams.put("total_fee", totalFee);
+        // 发起人IP地址
+        packageParams.put("spbill_create_ip", RpcContext.getContext().getRemoteHost());
+        // 回调地址
+        packageParams.put("notify_url", notify_url);
+        // 交易类型
+        packageParams.put("trade_type", trade_type);
+        //用户openID
+        packageParams.put("openid", openId);
+        String sign = PayCommonUtil.createSign("UTF-8", packageParams, ConfigUtil.API_KEY);
+        // 签名
+        packageParams.put("sign", sign);
+        String requestXML = PayCommonUtil.getRequestXml(packageParams);
+        String resXml = HttpUtil.postData(ConfigUtil.UNIFIED_ORDER_URL, requestXML);
+        Map map = XMLUtil.doXMLParse(resXml);
+        String returnCode = (String) map.get("return_code");
+        String returnMsg = (String) map.get("return_msg");
+        StringBuffer url = new StringBuffer();
+        if (SUCCESS.equals(returnCode)) {
+            String resultCode = (String) map.get("result_code");
+            String errCodeDes = (String) map.get("err_code_des");
+            if (SUCCESS.equals(resultCode)) {
+                //获取预支付交易会话标识
+                String prepay_id = (String) map.get("prepay_id");
+                String prepay_id2 = "prepay_id=" + prepay_id;
+                String packages = prepay_id2;
+                SortedMap<Object, Object> objectTreeMap = new TreeMap<>();
+                String timestamp = DateUtil.getTimestamp();
+                String nonceStr = packageParams.get("nonce_str").toString();
+                objectTreeMap.put("appId", ConfigUtil.APP_ID);
+                objectTreeMap.put("timeStamp", timestamp);
+                objectTreeMap.put("nonceStr", nonceStr);
+                objectTreeMap.put("package", packages);
+                objectTreeMap.put("signType", "MD5");
+                //这里很重要  参数一定要正确 狗日的腾讯 参数到这里就成大写了
+                //可能报错信息(支付验证签名失败 get_brand_wcpay_request:fail)
+                sign = PayCommonUtil.createSign("UTF-8", objectTreeMap, ConfigUtil.API_KEY);
+                objectTreeMap.put("sign", sign);
+                objectTreeMap.put("orderNo", outTradeNo);
+                objectTreeMap.put("totalFee", totalFee);
+                return ResponseInfo.createSuccess(objectTreeMap);
+            } else {
+                logger.info("订单号:{}错误信息:{}", outTradeNo, errCodeDes);
+                //该订单已支付
+                return ResponseInfo.createCodeEnum(CodeEnum.HAS_PAY);
+            }
+        } else {
+            logger.info("订单号:{}错误信息:{}", outTradeNo, returnMsg);
+            //系统错误
+            return ResponseInfo.createCodeEnum(CodeEnum.ERROR);
+        }
+    }
 }

@@ -1,16 +1,8 @@
 package com.feiduyang.pay.modules.weixinpay.controller;
 
-import com.feiduyang.common.constance.CodeEnum;
-import com.feiduyang.common.utils.HttpServletUtils;
+import com.feiduyang.api.pay.IWeixinPayService;
+import com.feiduyang.common.entity.pay.Product;
 import com.feiduyang.common.vo.ResponseInfo;
-import com.feiduyang.pay.common.model.Product;
-import com.feiduyang.pay.common.utils.AddressUtils;
-import com.feiduyang.pay.common.utils.DateUtil;
-import com.feiduyang.pay.modules.weixinpay.service.IWeixinPayService;
-import com.feiduyang.pay.modules.weixinpay.util.ConfigUtil;
-import com.feiduyang.pay.modules.weixinpay.util.HttpUtil;
-import com.feiduyang.pay.modules.weixinpay.util.PayCommonUtil;
-import com.feiduyang.pay.modules.weixinpay.util.XMLUtil;
 import com.feiduyang.pay.modules.weixinpay.util.mobile.MobileUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /**
  * @ClassName FeiDuYangWeixinPayController
@@ -47,9 +36,7 @@ public class FeiDuYangWeixinPayController {
     private static final Logger logger = LoggerFactory.getLogger(FeiDuYangWeixinPayController.class);
     @Autowired
     private IWeixinPayService weixinPayService;
-    @Value("${server.context.url}")
-    private String server_url;
-    public static final String SUCCESS = "SUCCESS";
+
 
     @ApiOperation(value = "H5支付(需要公众号内支付)")
     @RequestMapping(value = "pay", method = RequestMethod.POST)
@@ -97,73 +84,10 @@ public class FeiDuYangWeixinPayController {
     @SuppressWarnings("rawtypes")
     @ApiOperation(value = "预下单")
     @RequestMapping(value = "dopay", method = RequestMethod.POST)
-    public ResponseInfo dopay(@RequestParam String outTradeNo, @RequestParam String totalFee,
+    public ResponseInfo doPay(@RequestParam String outTradeNo, @RequestParam String totalFee,
                               @RequestParam String code) throws Exception {
         //获取code 这个在微信支付调用时会自动加上这个参数 无须设置
-        //获取用户openID(JSAPI支付必须传openid)
-        String openId = MobileUtil.getOpenId(code);
-        //回调接口
-        String notify_url = server_url + "/feiduyangPay/WXPayBack";
-        // 交易类型H5支付 也可以是小程序支付参数
-        String trade_type = "JSAPI";
-        SortedMap<Object, Object> packageParams = new TreeMap<>();
-        ConfigUtil.commonParams(packageParams);
-        // 商品描述
-        packageParams.put("body", "报告");
-        // 商户订单号
-        packageParams.put("out_trade_no", outTradeNo);
-        // 总金额
-        packageParams.put("total_fee", totalFee);
-        // 发起人IP地址
-        packageParams.put("spbill_create_ip", AddressUtils.getIpAddr(HttpServletUtils.getRequest()));
-        // 回调地址
-        packageParams.put("notify_url", notify_url);
-        // 交易类型
-        packageParams.put("trade_type", trade_type);
-        //用户openID
-        packageParams.put("openid", openId);
-        String sign = PayCommonUtil.createSign("UTF-8", packageParams, ConfigUtil.API_KEY);
-        // 签名
-        packageParams.put("sign", sign);
-        String requestXML = PayCommonUtil.getRequestXml(packageParams);
-        String resXml = HttpUtil.postData(ConfigUtil.UNIFIED_ORDER_URL, requestXML);
-        Map map = XMLUtil.doXMLParse(resXml);
-        String returnCode = (String) map.get("return_code");
-        String returnMsg = (String) map.get("return_msg");
-        StringBuffer url = new StringBuffer();
-        if (SUCCESS.equals(returnCode)) {
-            String resultCode = (String) map.get("result_code");
-            String errCodeDes = (String) map.get("err_code_des");
-            if (SUCCESS.equals(resultCode)) {
-                //获取预支付交易会话标识
-                String prepay_id = (String) map.get("prepay_id");
-                String prepay_id2 = "prepay_id=" + prepay_id;
-                String packages = prepay_id2;
-                SortedMap<Object, Object> objectTreeMap = new TreeMap<>();
-                String timestamp = DateUtil.getTimestamp();
-                String nonceStr = packageParams.get("nonce_str").toString();
-                objectTreeMap.put("appId", ConfigUtil.APP_ID);
-                objectTreeMap.put("timeStamp", timestamp);
-                objectTreeMap.put("nonceStr", nonceStr);
-                objectTreeMap.put("package", packages);
-                objectTreeMap.put("signType", "MD5");
-                //这里很重要  参数一定要正确 狗日的腾讯 参数到这里就成大写了
-                //可能报错信息(支付验证签名失败 get_brand_wcpay_request:fail)
-                sign = PayCommonUtil.createSign("UTF-8", objectTreeMap, ConfigUtil.API_KEY);
-                objectTreeMap.put("sign", sign);
-                objectTreeMap.put("orderNo", outTradeNo);
-                objectTreeMap.put("totalFee", totalFee);
-                return ResponseInfo.createSuccess(objectTreeMap);
-            } else {
-                logger.info("订单号:{}错误信息:{}", outTradeNo, errCodeDes);
-                //该订单已支付
-                return ResponseInfo.createCodeEnum(CodeEnum.HAS_PAY);
-            }
-        } else {
-            logger.info("订单号:{}错误信息:{}", outTradeNo, returnMsg);
-            //系统错误
-            return ResponseInfo.createCodeEnum(CodeEnum.ERROR);
-        }
+        return weixinPayService.doPay(outTradeNo, totalFee, code);
     }
 
     /**
