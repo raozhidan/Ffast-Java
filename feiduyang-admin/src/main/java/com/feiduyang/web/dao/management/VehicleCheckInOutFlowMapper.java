@@ -1,7 +1,8 @@
 package com.feiduyang.web.dao.management;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.VehicleCheckInOutFlow;
+import com.feiduyang.common.entity.management.VehicleCheckInOutFlow;
 
 /**
  * @description: 车辆进出流水信息Mapper接口

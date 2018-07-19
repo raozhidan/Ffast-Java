@@ -1,7 +1,8 @@
 package com.feiduyang.web.dao.sys;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.sys.DictType;
+import com.feiduyang.common.entity.sys.DictType;
 
 /**
  * @description: 基础字典类型Mapper接口

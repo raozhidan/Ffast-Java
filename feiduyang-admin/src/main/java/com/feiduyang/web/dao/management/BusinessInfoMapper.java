@@ -1,7 +1,7 @@
 package com.feiduyang.web.dao.management;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.BusinessInfo;
+import com.feiduyang.common.entity.management.BusinessInfo;
 
 /**
  * @description: 商户信息Mapper接口

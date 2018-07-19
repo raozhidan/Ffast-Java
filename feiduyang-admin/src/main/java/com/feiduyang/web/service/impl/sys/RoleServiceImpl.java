@@ -2,12 +2,12 @@ package com.feiduyang.web.service.impl.sys;
 
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.feiduyang.api.sys.IRoleService;
+import com.feiduyang.common.entity.sys.Role;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.common.vo.ResponseInfo;
 import com.feiduyang.common.vo.ServiceRowsResult;
-import com.feiduyang.core.support.CrudServiceImpl;
 import com.feiduyang.web.dao.sys.RoleMapper;
-import com.feiduyang.web.entity.sys.Role;
-import com.feiduyang.web.service.sys.IRoleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

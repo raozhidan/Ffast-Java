@@ -1,7 +1,7 @@
 package com.feiduyang.web.dao.sys;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.sys.Dict;
+import com.feiduyang.common.entity.sys.Dict;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

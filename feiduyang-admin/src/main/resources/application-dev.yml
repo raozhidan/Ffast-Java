@@ -45,6 +45,14 @@ mybatis-plus:
 logging:
   config: classpath:dev/logback.xml
 
+#============================#
+#===== zookeeper sttings ====#
+#============================#
+#zookeeper集群配置
+#dubbo.registry.address=10.40.10.205:2181,10.40.10.206:2181,10.40.10.207:2181
+dubbo:
+  registry:
+    address: 140.143.143.154:2181
 auth:
   pwdDefault: '123456'
   #是否开启验证码

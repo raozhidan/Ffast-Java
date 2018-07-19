@@ -1,9 +1,9 @@
 package com.feiduyang.web.interceptor;
 
 
+import com.feiduyang.api.sys.IRoleResService;
+import com.feiduyang.common.vo.Operator;
 import com.feiduyang.core.interceptor.BaseAuthInterceptor;
-import com.feiduyang.web.service.sys.IRoleResService;
-import com.feiduyang.web.vo.Operator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

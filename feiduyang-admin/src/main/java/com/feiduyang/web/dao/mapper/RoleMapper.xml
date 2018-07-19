@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.sys.RoleMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.Role">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.Role">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="role" property="role"/>

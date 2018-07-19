@@ -3,14 +3,14 @@
 <mapper namespace="com.feiduyang.web.dao.sys.UserRoleMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.sys.UserRole">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.sys.UserRole">
         <id column="id" property="id"/>
         <result column="role_id" property="roleId"/>
         <result column="user_id" property="userId"/>
     </resultMap>
 
 
-    <select id="listByUserId" resultType="com.feiduyang.web.entity.sys.Role">
+    <select id="listByUserId" resultType="com.feiduyang.common.entity.sys.Role">
         SELECT b.id,b.name,b.role,b.description,b.main
         FROM t_sys_user_role a
         LEFT JOIN t_sys_role b on a.role_id=b.id

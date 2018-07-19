@@ -187,6 +187,8 @@ public class FeiDuYangWeixinPayController {
             if (return_code.equals("SUCCESS")) {
                 if (out_trade_no != null) {
                     //处理订单逻辑
+                    //todo 调用服务完成订单状态的修改
+
                     logger.info("微信手机支付回调成功订单号:{}", out_trade_no);
                     resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>" + "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
                 }

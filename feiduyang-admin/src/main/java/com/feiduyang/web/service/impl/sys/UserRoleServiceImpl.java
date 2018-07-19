@@ -1,10 +1,11 @@
 package com.feiduyang.web.service.impl.sys;
 
-import com.feiduyang.core.support.CrudServiceImpl;
+
+import com.feiduyang.api.sys.IUserRoleService;
+import com.feiduyang.common.entity.sys.Role;
+import com.feiduyang.common.entity.sys.UserRole;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.web.dao.sys.UserRoleMapper;
-import com.feiduyang.web.entity.sys.Role;
-import com.feiduyang.web.entity.sys.UserRole;
-import com.feiduyang.web.service.sys.IUserRoleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,7 +1,8 @@
 package com.feiduyang.web.dao.management;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.VehicleOwnerInfo;
+import com.feiduyang.common.entity.management.VehicleOwnerInfo;
 
 /**
  * @description: 车主信息Mapper接口

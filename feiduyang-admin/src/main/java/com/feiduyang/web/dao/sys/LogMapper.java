@@ -1,8 +1,9 @@
 package com.feiduyang.web.dao.sys;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.plugins.pagination.Pagination;
-import com.feiduyang.web.entity.sys.Log;
+import com.feiduyang.common.entity.sys.Log;
 
 import java.util.List;
 

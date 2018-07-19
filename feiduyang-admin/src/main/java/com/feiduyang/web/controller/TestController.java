@@ -1,9 +1,9 @@
 package com.feiduyang.web.controller;
 
 import com.feiduyang.common.annotations.Logined;
-import com.feiduyang.core.auth.OperatorBase;
+import com.feiduyang.common.redis.RedisCacheUtils;
+import com.feiduyang.common.support.OperatorBase;
 import com.feiduyang.core.auth.OperatorUtils;
-import com.feiduyang.core.redis.RedisCacheUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.feiduyang.web.dao.work.BacklogMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.feiduyang.web.entity.work.Backlog">
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.work.Backlog">
         <result column="id" property="id"/> <!-- id -->
         <result column="name" property="name"/> <!-- 名称 -->
         <result column="creator_id" property="creatorId"/> <!-- 创建人 -->

@@ -1,9 +1,10 @@
 package com.feiduyang.web.service.impl.management;
 
-import com.feiduyang.core.support.CrudServiceImpl;
+
+import com.feiduyang.api.management.IVehicleOwnerInfoService;
+import com.feiduyang.common.entity.management.VehicleOwnerInfo;
+import com.feiduyang.common.support.CrudServiceImpl;
 import com.feiduyang.web.dao.management.VehicleOwnerInfoMapper;
-import com.feiduyang.web.entity.management.VehicleOwnerInfo;
-import com.feiduyang.web.service.management.IVehicleOwnerInfoService;
 import org.springframework.stereotype.Service;
 
 /**

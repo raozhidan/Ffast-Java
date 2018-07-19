@@ -1,7 +1,8 @@
 package com.feiduyang.web.dao.management;
 
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.feiduyang.web.entity.management.PointInfo;
+import com.feiduyang.common.entity.management.PointInfo;
 
 /**
  * @description: 商户的点位信息Mapper接口
