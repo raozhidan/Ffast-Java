@@ -5,6 +5,7 @@
 /feiduyang-generator/target/
 /feiduyang-pay/target/
 /feiduyang-common/target/
+/logs/
 .mvn
 /*.iml
 *.iml
