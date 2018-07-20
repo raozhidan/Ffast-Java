@@ -29,6 +29,7 @@ public class OrdersServiceImpl extends CrudServiceImpl<OrdersMapper, Orders, Lon
 
     @Override
     protected ResponseInfo createBefore(Orders m) {
+        System.out.println("cerate");
         if (StringUtils.isEmpty(AuthCurrentUser.getUserCode())) {
             return ResponseInfo.createCodeEnum(CodeEnum.WECHAT_CODE_NULL);
         }
@@ -47,7 +48,8 @@ public class OrdersServiceImpl extends CrudServiceImpl<OrdersMapper, Orders, Lon
     protected ResponseInfo createAfter(Orders m) {
         //创建订单后，请求实际支付渠道，先用微信支付
         try {
-             return weixinPayService.doPay(m.getOrderNo(), m.getOrderPrice() + "", AuthCurrentUser.getUserCode());
+            System.out.println("rebushu");
+            return weixinPayService.doPay(m.getOrderNo(), m.getOrderPrice() + "", AuthCurrentUser.getUserCode());
         } catch (Exception e) {
             e.printStackTrace();
         }

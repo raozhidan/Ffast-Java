@@ -177,7 +177,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!-- 指定main方法入口 -->
                 <configuration>
-                    <mainClass>com.feiduyang.start.Application</mainClass>
+                    <mainClass>com.feiduyang.pay.Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>
