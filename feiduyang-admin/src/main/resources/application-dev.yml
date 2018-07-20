@@ -1,0 +1,76 @@
+server:
+  port: 8080
+  #servlet:
+    #contextPath: /api/
+spring:
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: feiduyang666
+#    username: rzd
+#    password: Raozhidan123@
+#    url: jdbc:mysql://192.168.11.101:3306/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://bj-cdb-4crdkyps.sql.tencentcdb.com:63230/ffast?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    druid:
+      initialSize: 1
+      maxActive: 10
+      minIdle: 1
+      maxWait: 60000
+  jpa:
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    enabled: true
+    host: 139.199.24.243
+    port: 6379
+    ##password: 123465
+    #过期时间（秒）
+    expirationSecond: 1800
+    #序列号方式 默认0   0:"FastJSON",1:"JackJson",2:"Msgpack"
+    serializerType: 2
+#    password: 12345678
+#    cluster:
+#      nodes: 10.40.10.205:7000,10.40.10.206:7000,10.40.10.207:7000
+
+mybatis-plus:
+  global-config:
+    #刷新mapper 调试神器
+    refresh-mapper: true
+
+#日志配置
+logging:
+  config: classpath:dev/logback.xml
+
+#============================#
+#===== zookeeper sttings ====#
+#============================#
+#zookeeper集群配置
+#dubbo.registry.address=10.40.10.205:2181,10.40.10.206:2181,10.40.10.207:2181
+dubbo:
+  registry:
+    address: 139.199.24.243:2181
+auth:
+  pwdDefault: '123456'
+  #是否开启验证码
+  captchaEnable: true
+  #0使用jwt 1使用redis
+  type: 1
+  #过期时间（秒）
+  expirationSecond: 86400
+  jwt:
+    secret: 'ggs6fad5as6d5sa#dddfg2ddd$fdd$d@dd'
+
+
+business:
+ roleDefault: '测试'
+
+#上传配置
+upload:
+ filesBasePath: 'files/'
+ uploadUrl: 'http://127.0.1.1:8030/'
+
+

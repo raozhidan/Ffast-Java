@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feiduyang.web.dao.management.ProductInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.feiduyang.common.entity.management.ProductInfo">
+        <result column="id" property="id"/> <!-- 主键 -->
+        <result column="creator_id" property="creatorId"/> <!--  -->
+        <result column="last_modifier_id" property="lastModifierId"/> <!--  -->
+        <result column="create_time" property="createTime"/> <!--  -->
+        <result column="update_time" property="updateTime"/> <!--  -->
+        <result column="product_name" property="productName"/> <!--  -->
+        <result column="product_expiration_date" property="productExpirationDate"/> <!-- 有效期限（单位：月） -->
+        <result column="product_price" property="productPrice"/> <!-- 产品价格（元） -->
+        <result column="business_id" property="businessId"/> <!-- 所属商户 -->
+        <result column="product_type" property="productType"/> <!-- 产品类型 -->
+        <result column="point_id" property="pointId"/> <!-- 所属点位 -->
+        <result column="product_discount" property="productDiscount"/> <!-- 产品折扣 -->
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        product_name, product_expiration_date, product_price, business_id, product_type, point_id, product_discount
+    </sql>
+    <!-- 通用查询条件 -->
+    <sql id="Find_List_Where">
+        <where>
+            <if test="m.id != null">
+                AND id = #{m.id}  <!-- 主键 -->
+            </if>
+            <if test="m.creatorId != null">
+                AND creator_id = #{m.creatorId}  <!--  -->
+            </if>
+            <if test="m.lastModifierId != null">
+                AND last_modifier_id = #{m.lastModifierId}  <!--  -->
+            </if>
+            <if test="m.createTime != null">
+                AND create_time = #{m.createTime}  <!--  -->
+            </if>
+            <if test="m.updateTime != null">
+                AND update_time = #{m.updateTime}  <!--  -->
+            </if>
+            <if test="m.productName != null and m.productName != ''">
+                AND product_name = #{m.productName}  <!--  -->
+            </if>
+            <if test="m.productExpirationDate != null">
+                AND product_expiration_date = #{m.productExpirationDate}  <!-- 有效期限（单位：月） -->
+            </if>
+            <if test="m.productPrice != null">
+                AND product_price = #{m.productPrice}  <!-- 产品价格（元） -->
+            </if>
+            <if test="m.businessId != null">
+                AND business_id = #{m.businessId}  <!-- 所属商户 -->
+            </if>
+            <if test="m.productType != null">
+                AND product_type = #{m.productType}  <!-- 产品类型 -->
+            </if>
+            <if test="m.pointId != null">
+                AND point_id = #{m.pointId}  <!-- 所属点位 -->
+            </if>
+            <if test="m.productDiscount != null">
+                AND product_discount = #{m.productDiscount}  <!-- 产品折扣 -->
+            </if>
+        </where>
+        ORDER BY id ASC
+    </sql>
+
+    <!--增改查范本-->
+    <!--
+    <select id="select" resultType="ProductInfo">
+        SELECT  <include refid="Base_Column_List" />
+        FROM t_product_info
+        <include refid="Find_List_Where" />
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="ProductInfo">
+        INSERT INTO t_product_info ()
+        VALUES()
+    </insert>
+    <update id="update" parameterType="ProductInfo">
+          UPDATE t_product_info
+          <set>
+        </set>
+        WHERE id = #{id}
+     </update>
+    -->
+
+</mapper>
