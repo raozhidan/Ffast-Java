@@ -1,8 +1,8 @@
 package com.feiduyang.pay.modules.weixinpay.controller;
 
+import com.feiduyang.api.pay.IWeixinPayService;
 import com.feiduyang.pay.common.constants.Constants;
-import com.feiduyang.pay.common.model.Product;
-import com.feiduyang.pay.modules.weixinpay.service.IWeixinPayService;
+import com.feiduyang.common.entity.pay.Product;
 import com.feiduyang.pay.modules.weixinpay.util.ConfigUtil;
 import com.feiduyang.pay.modules.weixinpay.util.HttpUtil;
 import com.feiduyang.pay.modules.weixinpay.util.PayCommonUtil;

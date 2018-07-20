@@ -1,6 +1,6 @@
 package com.feiduyang.pay.modules.alipay.service;
 
-import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.common.entity.pay.Product;
 
 /**
  * 扫码支付以及手机H5支付

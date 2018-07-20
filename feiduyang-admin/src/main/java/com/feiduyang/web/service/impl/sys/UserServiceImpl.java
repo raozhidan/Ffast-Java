@@ -86,6 +86,7 @@ public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> imp
 
     @Override
     protected ServiceRowsResult listBefore(User m, EntityWrapper<User> ew) {
+        System.out.println("dededed");
         ew.like("username", m.getUsername());
         ew.like("email", m.getEmail());
         ew.like("tel", m.getTel());
@@ -120,7 +121,6 @@ public class UserServiceImpl extends CrudServiceImpl<UserMapper, User, Long> imp
         result.setPage(page.getRecords(), page.getTotal());
         result.setSuccess(true);
         redisCacheUtils.setCacheObject("user", result);
-
         return result;
     }
 

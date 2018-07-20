@@ -1,7 +1,7 @@
 package com.feiduyang.pay.modules.unionpay.controller;
 
 import com.feiduyang.pay.common.constants.PayWay;
-import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.common.entity.pay.Product;
 import com.feiduyang.pay.modules.alipay.controller.AliPayController;
 import com.feiduyang.pay.modules.unionpay.service.IUnionPayService;
 import com.feiduyang.pay.modules.unionpay.util.AcpService;

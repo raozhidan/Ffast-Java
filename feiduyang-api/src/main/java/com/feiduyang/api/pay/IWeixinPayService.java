@@ -1,6 +1,7 @@
-package com.feiduyang.pay.modules.weixinpay.service;
+package com.feiduyang.api.pay;
 
-import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.common.entity.pay.Product;
+import com.feiduyang.common.vo.ResponseInfo;
 
 public interface IWeixinPayService {
     /**
@@ -78,4 +79,15 @@ public interface IWeixinPayService {
      * 2017年8月9日  科帮网 首次创建
      */
     String weixinPayH5(Product product);
+
+    /**
+     * 预下单
+     *
+     * @param outTradeNo
+     * @param totalFee
+     * @param code
+     * @return
+     * @throws Exception
+     */
+    ResponseInfo doPay(String outTradeNo, String totalFee, String code) throws Exception;
 }

@@ -4,7 +4,7 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.demo.trade.config.Configs;
 import com.feiduyang.pay.common.constants.Constants;
-import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.common.entity.pay.Product;
 import com.feiduyang.pay.modules.alipay.service.IAliPayService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

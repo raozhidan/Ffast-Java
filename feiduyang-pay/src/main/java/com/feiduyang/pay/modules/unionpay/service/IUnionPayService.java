@@ -1,6 +1,6 @@
 package com.feiduyang.pay.modules.unionpay.service;
 
-import com.feiduyang.pay.common.model.Product;
+import com.feiduyang.common.entity.pay.Product;
 
 import java.util.Map;
 

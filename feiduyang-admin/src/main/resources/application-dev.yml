@@ -25,7 +25,7 @@ spring:
     default-property-inclusion: non_null
   redis:
     enabled: true
-    host: 140.143.143.154
+    host: 139.199.24.243
     port: 6379
     ##password: 123465
     #过期时间（秒）
@@ -52,7 +52,7 @@ logging:
 #dubbo.registry.address=10.40.10.205:2181,10.40.10.206:2181,10.40.10.207:2181
 dubbo:
   registry:
-    address: 140.143.143.154:2181
+    address: 139.199.24.243:2181
 auth:
   pwdDefault: '123456'
   #是否开启验证码
